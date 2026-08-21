@@ -6,6 +6,13 @@ import ImageModal from "../components/ImageModal";
 
 // Datos de prueba (ampliables cuando se suban las 40 fotos reales)
 const portfolioData = [
+
+  { id: 101, src: "/assets/portfolio/1_pintura_fachada.jpg", cat: "fachadas", alt: "Aplicación de pintura primera mano" },
+  { id: 102, src: "/assets/portfolio/2_prueba_anclaje.png", cat: "lineas", alt: "Prueba de extracción de anclaje con hidrájaws" },
+  { id: 103, src: "/assets/portfolio/3_lavado_fachada.jpg", cat: "fachadas", alt: "Lavado de fachada edificio alto" },
+  { id: 104, src: "/assets/portfolio/4_lavado_cubierta.jpg", cat: "cubiertas", alt: "Lavado a presión de techo/cubierta" },
+  { id: 105, src: "/assets/portfolio/5_mantenimiento_techo_tijera.jpg", cat: "estructuras", alt: "Mantenimiento estructural con elevador de tijera" },
+
   { id: 1, src: "/assets/real_facade.jpg", cat: "fachadas", alt: "Limpieza de fachada" },
   { id: 2, src: "/assets/real_welding.jpg", cat: "estructuras", alt: "Soldadura en altura" },
   { id: 3, src: "/assets/real_roof_lifeline.jpg", cat: "lineas", alt: "Instalación de línea de vida en techo" },
@@ -35,7 +42,8 @@ export default function PortfolioClient() {
           { id: "todas", label: "Todas las fotos" },
           { id: "fachadas", label: "Fachadas y Pintura" },
           { id: "estructuras", label: "Estructuras Metálicas" },
-          { id: "lineas", label: "Líneas de Vida" }
+          { id: "lineas", label: "Líneas de Vida" },
+          { id: "cubiertas", label: "Cubiertas" }
         ].map((btn) => (
           <button
             key={btn.id}

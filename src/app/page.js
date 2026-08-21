@@ -658,12 +658,12 @@ function PortfolioTeaser() {
   const router = useRouter();
   
   const teaserPhotos = [
-    "/assets/real_facade.jpg",
-    "/assets/real_welding.jpg",
-    "/assets/real_roof_lifeline.jpg",
-    "/assets/real_anchor_testing.jpg",
-    "/assets/real_tower_structure.jpg",
-    "/assets/facade_maintenance.jpg"
+    "/assets/portfolio/1_pintura_fachada.jpg",
+    "/assets/portfolio/2_prueba_anclaje.png",
+    "/assets/portfolio/3_lavado_fachada.jpg",
+    "/assets/portfolio/4_lavado_cubierta.jpg",
+    "/assets/portfolio/5_mantenimiento_techo_tijera.jpg",
+    "/assets/real_roof_lifeline.jpg"
   ];
 
   return (
