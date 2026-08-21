@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import FloatingWhatsApp from "../../components/FloatingWhatsApp";
+import ScrollToTop from "../../components/ScrollToTop";
 import InteractiveQuote from "../../components/InteractiveQuote";
 
 export const metadata = {
@@ -63,6 +64,7 @@ export default function TrabajosFachadas() {
         </section>
       </main>
       <FloatingWhatsApp />
+      <ScrollToTop />
       <Footer />
     </>
   );

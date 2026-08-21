@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import ImageModal from "./components/ImageModal";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ScrollToTop from "./components/ScrollToTop";
 
 /* ── Reusable animation variants ── */
 const fadeUp = {
@@ -620,6 +621,7 @@ export default function Page() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <ScrollToTop />
       <ImageModal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
     </>
   );
