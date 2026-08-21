@@ -1458,3 +1458,11 @@ nav a:hover { color: var(--orange); }
 
   .ws-btn { bottom: 20px; right: 20px; width: 52px; height: 52px; font-size: 24px; }
 }
+
+/* SCROLL TO TOP */
+.scroll-to-top-btn { position: fixed; bottom: 96px; right: 28px; }
+@media (max-width: 430px) { .scroll-to-top-btn { bottom: 28px; left: 28px; right: auto; } }
+
+
+@media (max-width: 430px) { .whatsapp-tooltip-box { display: none !important; } }
+

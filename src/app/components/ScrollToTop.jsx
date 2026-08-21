@@ -37,9 +37,6 @@ export default function ScrollToTop() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           style={{
-            position: "fixed",
-            bottom: "96px", // Above the WhatsApp button (which is at 28px + ~60px height)
-            right: "28px",
             zIndex: 998,
             width: "50px",
             height: "50px",
@@ -55,6 +52,7 @@ export default function ScrollToTop() {
             cursor: "pointer",
             boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
           }}
+          className="scroll-to-top-btn"
           aria-label="Subir al inicio"
         >
           <i className="fa-solid fa-arrow-up" />

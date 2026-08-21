@@ -24,6 +24,7 @@ export default function FloatingWhatsApp() {
       <AnimatePresence>
         {(isOpen || showTooltip) && (
           <motion.div
+            className="whatsapp-tooltip-box"
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}

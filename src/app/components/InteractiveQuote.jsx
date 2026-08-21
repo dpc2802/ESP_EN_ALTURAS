@@ -19,6 +19,7 @@ export default function InteractiveQuote() {
     urgencia: "",
     nombre: "",
     empresa: "",
+    correo: "",
     telefono: "",
     detalles: "",
   });
@@ -49,6 +50,7 @@ Deseo cotizar un proyecto.
 *Datos de Contacto:*
 Nombre: ${formData.nombre}
 Empresa: ${formData.empresa || "N/A"}
+Correo: ${formData.correo || "N/A"}
 Teléfono: ${formData.telefono}
 
 *Detalles Adicionales:*
@@ -208,6 +210,19 @@ ${formData.detalles || "Sin detalles adicionales."}`;
                 />
               </div>
 
+              
+              <div className="form-row">
+                <label>Correo Electrónico Corporativo</label>
+                <input
+                  type="email"
+                  className="form-input"
+                  placeholder="Ej. compras@constructora.com"
+                  required
+                  value={formData.correo}
+                  onChange={(e) => updateForm("correo", e.target.value)}
+                />
+              </div>
+
               <div className="form-row">
                 <label>Nombre de la Empresa / Conjunto (Opcional)</label>
                 <input
@@ -263,7 +278,7 @@ ${formData.detalles || "Sin detalles adicionales."}`;
               <button 
                 className="btn-secondary-outline" 
                 style={{ marginTop: "24px" }}
-                onClick={() => { setStep(1); setFormData({servicio: "", tipoProyecto: "", urgencia: "", nombre: "", empresa: "", telefono: "", detalles: ""}); }}
+                onClick={() => { setStep(1); setFormData({servicio: "", tipoProyecto: "", urgencia: "", nombre: "", empresa: "", correo: "", telefono: "", detalles: ""}); }}
               >
                 Hacer otra cotización
               </button>
