@@ -1,61 +1,9 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import ImageModal from "../components/ImageModal";
+const fs = require('fs');
 
-// Datos de prueba (ampliables cuando se suban las 40 fotos reales)
-const portfolioData = [
+let file = 'src/app/portafolio/PortfolioClient.jsx';
+let text = fs.readFileSync(file, 'utf8');
 
-  { id: 121, src: "/assets/portfolio/21_descenso_extremo_fachada.jpg", cat: "fachadas", alt: "Descenso de gran altura en entorno urbano" },
-  { id: 122, src: "/assets/portfolio/22_soldadura_techo.jpg", cat: "estructuras", alt: "Trabajo de soldadura en estructura de techo" },
-  { id: 123, src: "/assets/portfolio/23_soldadura_estructura.png", cat: "estructuras", alt: "Soldadura en viga estructural en altura" },
-  { id: 124, src: "/assets/portfolio/24_tensor_linea_vida.jpg", cat: "lineas", alt: "Detalle de tensor y absorbedor de energía en línea de vida" },
-  { id: 125, src: "/assets/portfolio/25_preparacion_cuerdas_azotea.jpg", cat: "fachadas", alt: "Equipo técnico preparando anclajes en azotea" },
-
-
-  { id: 116, src: "/assets/portfolio/16_lectura_dinamometro.png", cat: "lineas", alt: "Lectura de tensión en dinamómetro digital" },
-  { id: 117, src: "/assets/portfolio/17_lavado_cubierta_doble.jpg", cat: "cubiertas", alt: "Limpieza profunda de cubierta con hidrolavadora" },
-  { id: 118, src: "/assets/portfolio/18_descenso_fachada_ladrillo.jpg", cat: "fachadas", alt: "Mantenimiento simultáneo en fachada de ladrillo" },
-  { id: 119, src: "/assets/portfolio/19_lavado_fachada_ladrillo.png", cat: "fachadas", alt: "Hidrolavado a presión en edificio de ladrillo" },
-  { id: 120, src: "/assets/portfolio/20_trabajador_fachada_ladrillo.png", cat: "fachadas", alt: "Operario especialista en alturas inspeccionando fachada" },
-
-
-  { id: 111, src: "/assets/portfolio/11_instalacion_linea_techo.jpg", cat: "lineas", alt: "Instalación de sistema de línea de vida en techo" },
-  { id: 112, src: "/assets/portfolio/12_ajuste_linea_vida.jpg", cat: "lineas", alt: "Ajuste y tensado de línea de vida estructural" },
-  { id: 113, src: "/assets/portfolio/13_inspeccion_cubierta.png", cat: "cubiertas", alt: "Inspección técnica de riesgo en cubierta" },
-  { id: 114, src: "/assets/portfolio/14_prueba_extraccion.jpg", cat: "lineas", alt: "Verificación de resistencia de anclaje con Hydrajaws" },
-  { id: 115, src: "/assets/portfolio/15_montaje_escalera.jpg", cat: "fachadas", alt: "Montaje seguro de escalera de extensión" },
-
-
-  { id: 106, src: "/assets/portfolio/6_lavado_cubierta.jpg", cat: "cubiertas", alt: "Limpieza a presión en cubierta termoacústica" },
-  { id: 107, src: "/assets/portfolio/7_prueba_anclaje_2.jpg", cat: "lineas", alt: "Certificación de anclaje estructural con dinamómetro" },
-  { id: 108, src: "/assets/portfolio/8_pintura_escalera.jpg", cat: "fachadas", alt: "Pintura exterior en baja altura con escalera certificada" },
-  { id: 109, src: "/assets/portfolio/9_pintura_fachada_cuerdas.jpg", cat: "fachadas", alt: "Aplicación de recubrimiento en muro ciego" },
-  { id: 110, src: "/assets/portfolio/10_pintura_fachada_cuerdas_amplio.jpg", cat: "fachadas", alt: "Trabajo simultáneo de pintura en torre residencial" },
-
-
-  { id: 101, src: "/assets/portfolio/1_pintura_fachada.jpg", cat: "fachadas", alt: "Aplicación de pintura primera mano" },
-  { id: 102, src: "/assets/portfolio/2_prueba_anclaje.png", cat: "lineas", alt: "Prueba de extracción de anclaje con hidrájaws" },
-  { id: 103, src: "/assets/portfolio/3_lavado_fachada.jpg", cat: "fachadas", alt: "Lavado de fachada edificio alto" },
-  { id: 104, src: "/assets/portfolio/4_lavado_cubierta.jpg", cat: "cubiertas", alt: "Lavado a presión de techo/cubierta" },
-  { id: 105, src: "/assets/portfolio/5_mantenimiento_techo_tijera.jpg", cat: "estructuras", alt: "Mantenimiento estructural con elevador de tijera" },
-
-  { id: 1, src: "/assets/real_facade.jpg", cat: "fachadas", alt: "Limpieza de fachada" },
-  { id: 2, src: "/assets/real_welding.jpg", cat: "estructuras", alt: "Soldadura en altura" },
-  { id: 3, src: "/assets/real_roof_lifeline.jpg", cat: "lineas", alt: "Instalación de línea de vida en techo" },
-  { id: 4, src: "/assets/real_tower_structure.jpg", cat: "estructuras", alt: "Mantenimiento de torre" },
-  { id: 5, src: "/assets/real_facade_washing.jpg", cat: "fachadas", alt: "Hidrolavado de ladrillo" },
-  { id: 6, src: "/assets/real_anchor_testing.jpg", cat: "lineas", alt: "Prueba de anclaje a 23kN" },
-  { id: 7, src: "/assets/real_mountain_climber.jpg", cat: "estructuras", alt: "Acceso por cuerdas avanzado" },
-  { id: 8, src: "/assets/real_welding_pipe.jpg", cat: "estructuras", alt: "Soldadura de tubería industrial" },
-  { id: 9, src: "/assets/real_rope_access.jpg", cat: "fachadas", alt: "Descenso controlado en edificio" },
-  { id: 10, src: "/assets/real_city_facade.jpg", cat: "fachadas", alt: "Pintura exterior de edificio" },
-  { id: 11, src: "/assets/facade_maintenance.jpg", cat: "fachadas", alt: "Mantenimiento de fachada de vidrio" },
-  { id: 12, src: "/assets/lifeline_safety.jpg", cat: "lineas", alt: "Línea de vida certificada" }
-];
-
-
+const replacement = `
 export default function PortfolioClient() {
   const [filter, setFilter] = useState("todas");
   const [selectedItem, setSelectedItem] = useState(null);
@@ -81,9 +29,9 @@ export default function PortfolioClient() {
           scrollbarWidth: 'none'
         }}
       >
-        <style>{`.portfolio-filters::-webkit-scrollbar { display: none; }`}</style>
+        <style>{\`.portfolio-filters::-webkit-scrollbar { display: none; }\`}</style>
         {[
-          { id: "todas", label: `TODOS (${portfolioData.length})` },
+          { id: "todas", label: \`TODOS (\${portfolioData.length})\` },
           { id: "fachadas", label: "FACHADAS" },
           { id: "cubiertas", label: "CUBIERTAS" },
           { id: "estructuras", label: "ESTRUCTURAS" },
@@ -133,7 +81,7 @@ export default function PortfolioClient() {
         <AnimatePresence mode="popLayout">
           {filteredData.map((item, index) => {
             const displayIndex = index + 1;
-            const badgeNumber = displayIndex < 10 ? `0${displayIndex}` : displayIndex;
+            const badgeNumber = displayIndex < 10 ? \`0\${displayIndex}\` : displayIndex;
 
             return (
               <motion.div
@@ -185,7 +133,7 @@ export default function PortfolioClient() {
                   </div>
 
                   <motion.img
-                    layoutId={`portfolio-img-${item.id}`}
+                    layoutId={\`portfolio-img-\${item.id}\`}
                     src={item.src}
                     alt={item.alt}
                     style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -237,3 +185,9 @@ export default function PortfolioClient() {
     </>
   );
 }
+`;
+
+const regex = /export default function PortfolioClient\(\) \{[\s\S]*$/;
+text = text.replace(regex, replacement);
+
+fs.writeFileSync(file, text);

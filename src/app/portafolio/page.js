@@ -14,14 +14,13 @@ export default function PortfolioPage() {
   return (
     <>
       <Header />
-      <main className="portfolio-page" style={{ paddingTop: '100px', background: '#f8f9fc', minHeight: '100vh' }}>
-        <div className="wrap" style={{ padding: '60px 20px', textAlign: 'center' }}>
-          <span className="about-tag" style={{ justifyContent: 'center' }}>05. Nuestro Trabajo</span>
-          <h1 style={{ fontSize: '40px', color: 'var(--navy)', fontFamily: 'var(--font-head)', marginBottom: '16px' }}>
-            Casos de Éxito en Campo
+      <main className="portfolio-page" style={{ paddingTop: '100px', background: '#f4f5f7', minHeight: '100vh' }}>
+        <div className="wrap" style={{ padding: '60px 20px', textAlign: 'left' }}>
+          <h1 style={{ fontSize: '32px', color: 'var(--navy)', fontFamily: 'var(--font-head)', marginBottom: '12px', fontWeight: 800, textTransform: 'uppercase' }}>
+            GALERÍA DE <span style={{ color: 'var(--orange)' }}>TRABAJOS</span>
           </h1>
-          <p style={{ maxWidth: '600px', margin: '0 auto 40px', color: '#555', fontSize: '18px' }}>
-            Explora nuestra galería de intervenciones reales. Haz clic en los botones para filtrar por especialidad.
+          <p style={{ maxWidth: '800px', margin: '0 0 40px', color: '#666', fontSize: '16px' }}>
+            Las fotos de nuestras intervenciones reales, organizadas por categoría.
           </p>
 
           <PortfolioClient />
