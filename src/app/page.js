@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import InteractiveQuote from "./components/InteractiveQuote";
 import Header from "./components/Header";
@@ -77,12 +78,7 @@ function HeroSection() {
 
   return (
     <section className="hero" id="inicio">
-      <motion.img
-        src="/assets/real_rope_access.jpg"
-        alt="Trabajo seguro en alturas"
-        className="hero-image"
-        style={{ y: imgY }}
-      />
+      <motion.div className="hero-image" style={{ y: imgY }}><Image src="/assets/real_rope_access.jpg" alt="Trabajo seguro en alturas" fill priority style={{ objectFit: "cover" }} /></motion.div>
       <div className="hero-mesh" />
       <div className="wrap">
         <div className="hero-content">
@@ -358,8 +354,18 @@ function ServicesSection({ onImageClick }) {
                 }
               }}
               style={{ cursor: "pointer" }}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  if(svc.link && svc.link.startsWith("/#")) {
+                    document.querySelector(svc.link.replace("/#", "#"))?.scrollIntoView({ behavior: "smooth" });
+                  } else if (svc.link) {
+                    router.push(svc.link);
+                  }
+                }
+              }}
             >
-              <img src={svc.image} alt={svc.title} className="svc-img-bg" />
+              <Image src={svc.image} alt={svc.title} className="svc-img-bg" fill sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="svc-img-overlay" />
               
               <div className="svc-content">

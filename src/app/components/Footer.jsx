@@ -1,4 +1,6 @@
+
 "use client";
+import Image from "next/image";
 
 import Link from "next/link";
 
@@ -11,7 +13,7 @@ export default function Footer() {
           <div className="footer-col-brand">
             <div className="footer-brand">
               <Link href="/">
-                <img src="/assets/logo.png" alt="Logo Especialistas en Alturas" className="footer-logo" />
+                <Image src="/assets/logo.png" alt="Logo Especialistas en Alturas" className="footer-logo" width={200} height={60} />
               </Link>
             </div>
             <p className="footer-desc">

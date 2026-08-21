@@ -1,4 +1,6 @@
+
 "use client";
+import Image from "next/image";
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,7 +49,7 @@ export default function Header() {
             
             <div className="mobile-nav-top">
               <Link href="/">
-                <img src="/assets/logo.png" alt="EA" className="mobile-nav-logo" />
+                <Image src="/assets/logo.png" alt="EA" className="mobile-nav-logo" width={60} height={60} />
               </Link>
               <button className="mobile-nav-close" onClick={() => setMenuOpen(false)}>
                 <i className="fa-solid fa-xmark" />
