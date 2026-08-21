@@ -1481,7 +1481,7 @@ nav a:hover { color: var(--orange); }
 
 /* SCROLL TO TOP */
 .scroll-to-top-btn { position: fixed; bottom: 96px; right: 28px; }
-@media (max-width: 430px) { .scroll-to-top-btn { bottom: 28px; left: 28px; right: auto; } }
+@media (max-width: 430px) { .scroll-to-top-btn { bottom: 96px; left: 28px; right: auto; } }
 
 
 @media (max-width: 430px) { .whatsapp-tooltip-box { display: none !important; } }
@@ -1589,3 +1589,8 @@ nav a:hover { color: var(--orange); }
   margin-top: 12px;
 }
 
+
+/* FLOATING PHONE */
+.floating-phone-wrap { position: fixed; bottom: 28px; left: 28px; z-index: 998; }
+.floating-phone-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--blue-600); color: white; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 8px 24px rgba(11,29,53,0.3); text-decoration: none; border: 2px solid rgba(255,255,255,0.2); }
+.floating-phone-btn:hover { color: white; }
