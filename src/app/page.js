@@ -478,14 +478,14 @@ function BenefitsSection() {
         </motion.div>
 
         <motion.div
-          className="bento-grid"
+          className="bento-grid swipe-carousel"
           variants={stagger(0.1)}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
           {steps.map((s, i) => (
             <motion.div
-              className={`bento-card`}
+              className={`bento-card swipe-card`}
               key={i}
               variants={fadeUp}
               custom={i}
@@ -536,13 +536,13 @@ function RiskAnalysisSection() {
         </motion.div>
 
         <motion.div
-          className="rope-timeline"
+          className="rope-timeline swipe-carousel"
           variants={stagger(0.15)}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
           {checks.map((item, i) => (
-            <motion.div className="rope-node" key={i} variants={fadeUp}>
+            <motion.div className="rope-node swipe-card" key={i} variants={fadeUp}>
               <div className="carabiner-icon">
                 <i className="fa-solid fa-link" />
               </div>
