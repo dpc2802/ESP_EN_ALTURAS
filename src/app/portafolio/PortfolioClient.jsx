@@ -57,7 +57,7 @@ const portfolioData = [
 
 export default function PortfolioClient() {
   const [filter, setFilter] = useState("todas");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const filteredData = filter === "todas" 
     ? portfolioData 
@@ -95,28 +95,28 @@ export default function PortfolioClient() {
 
       <motion.div layout className="masonry-grid">
         <AnimatePresence>
-          {filteredData.map((item) => (
+          {filteredData.map((item, index) => (
             <motion.div
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "50px" }}
               exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.4 }}
+              transition={{ 
+                duration: 0.6, 
+                ease: [0.16, 1, 0.3, 1],
+                delay: (index % 6) * 0.1 
+              }}
               key={item.id}
               className="masonry-item"
-              onClick={() => setSelectedImage(item.src)}
+              onClick={() => setSelectedItem(item)}
             >
               <div style={{ position: 'relative', width: '100%', borderRadius: '16px', overflow: 'hidden', cursor: 'zoom-in', boxShadow: '0 10px 20px rgba(0,0,0,0.08)' }}>
-                {/* Usamos un truco con padding-bottom si no sabemos el aspect ratio, 
-                    o layout="responsive". Para Next Image con objectFit='cover' en masonry, 
-                    requiere altura fija. Dado que masonry es fluido, 
-                    lo mejor para next/image es darle estilos para no desbordar. */}
-                <Image
+                <motion.img
+                  layoutId={`portfolio-img-${item.id}`}
                   src={item.src}
                   alt={item.alt}
-                  width={600}
-                  height={600}
-                  style={{ width: '100%', height: 'auto', display: 'block', transition: 'transform 0.5s ease' }}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
                   className="portfolio-img-hover"
                 />
               </div>
@@ -125,7 +125,7 @@ export default function PortfolioClient() {
         </AnimatePresence>
       </motion.div>
 
-      <ImageModal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
+      <ImageModal selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
     </>
   );
 }
