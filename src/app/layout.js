@@ -16,13 +16,31 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://esp-en-alturas.vercel.app"),
   title: "Especialistas en Alturas SAS — Trabajo Seguro en Altura",
   description:
     "Trabajos en alturas certificados: estructuras metálicas, líneas de vida, fachadas y cubiertas. SG-SST estructurado, personal calificado, desde 2014.",
-  keywords: "trabajo en alturas, líneas de vida, estructuras metálicas, fachadas, SG-SST, Colombia",
+  keywords: "trabajo en alturas, líneas de vida, estructuras metálicas, fachadas, SG-SST, Colombia, Medellín",
   openGraph: {
+    title: "Especialistas en Alturas SAS | Ingeniería de Riesgo",
+    description: "Expertos en trabajos seguros de alto riesgo. Personal certificado y cumplimiento de la Resolución 4272/2021.",
+    url: "https://esp-en-alturas.vercel.app",
+    siteName: "Especialistas en Alturas SAS",
+    images: [
+      {
+        url: "/assets/hero_heights.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Especialistas en Alturas - Trabajo Seguro",
+      },
+    ],
+    locale: "es_CO",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Especialistas en Alturas SAS",
-    description: "Ingeniería de riesgo al más alto nivel. Personal certificado y tolerancia cero a accidentes.",
+    description: "Expertos en trabajos seguros de alto riesgo.",
     images: ["/assets/hero_heights.jpg"],
   },
 };

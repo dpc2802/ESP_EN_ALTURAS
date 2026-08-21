@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import ImageModal from "./components/ImageModal";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 /* ── Reusable animation variants ── */
 const fadeUp = {
@@ -390,78 +392,54 @@ function AboutSection() {
 }
 
 /* ── Services Section (Portafolio) ── */
-function ServicesSection() {
+function ServicesSection({ onImageClick }) {
   const [ref, inView] = useInView(0.1);
   const services = [
     {
       num: "01",
       icon: "fa-layer-group",
-      image: "/assets/real_welding.jpg",
-      title: "Estructuras Metálicas",
+      title: "ESTRUCTURAS METÁLICAS",
       desc: "Diseños ajustados a la medida; creamos estructuras certificadas en cumplimiento de la Resolución 4272/2021.",
-      bullets: [
-        "Campos de entrenamiento",
-        "Escaleras",
-        "Barandas",
-        "Plataformas",
-        "Monster Heights"
-      ]
+      image: "/assets/real_welding.jpg",
+      bullets: ["Campos de entrenamiento", "Escaleras", "Barandas", "Plataformas", "Monster Heights"]
     },
     {
       num: "02",
       icon: "fa-building",
-      image: "/assets/real_facade.jpg",
-      title: "Trabajos en Fachadas",
-      desc: "Ejecución de trabajos en alturas que comprometan el exterior de edificios, bodegas, conjuntos residenciales, etc.",
-      bullets: [
-        "Pintura, Mantenimiento y Reparaciones",
-        "Lavado y Adecuaciones",
-        "Impermeabilización y Sellos"
-      ]
+      title: "TRABAJOS EN FACHADAS",
+      desc: "Soluciones integrales de mantenimiento e impermeabilización para exteriores y edificios de gran altura.",
+      image: "/assets/real_facade_washing2.jpg",
+      bullets: ["Pintura", "Mantenimiento", "Reparaciones", "Lavado", "Adecuaciones", "Impermeabilización", "Sellos"]
     },
     {
       num: "03",
       icon: "fa-link",
-      image: "/assets/real_anchor_testing.jpg",
-      title: "Líneas de Vida y Puntos de Anclaje",
-      desc: "Sistemas de protección contra caídas diseñados a la medida, ofreciendo cobertura total al Riesgo de caída desde un nivel superior.",
-      bullets: [
-        "Líneas de vida horizontales y verticales",
-        "Implementación de puntos de anclaje"
-      ]
+      title: "LÍNEAS DE VIDA",
+      desc: "Sistemas anticaídas certificados para garantizar la seguridad de su personal en cualquier tipo de cubierta o estructura.",
+      image: "/assets/real_lifeline_testing.jpg",
+      bullets: ["Líneas de vida horizontales", "Líneas de vida verticales", "Implementación de puntos de anclaje"]
     },
     {
       num: "04",
-      icon: "fa-tower-observation",
+      icon: "fa-screwdriver-wrench",
+      title: "TRABAJOS EN ALTURAS",
+      desc: "Ejecución experta en instalación y mantenimiento de estructuras suspendidas o de difícil acceso.",
       image: "/assets/real_tower_structure.jpg",
-      title: "Estructuras para trabajos en alturas",
-      desc: "Diseño, fabricación e instalación de estructuras especializadas para garantizar seguridad absoluta en alturas.",
+      bullets: ["Mantenimiento", "Reparaciones", "Instalaciones", "Limpieza técnica"]
     },
     {
       num: "05",
-      icon: "fa-house-chimney",
+      icon: "fa-trowel-bricks",
+      title: "TRABAJOS EN CUBIERTAS",
+      desc: "Intervenciones seguras sobre tejados y cubiertas industriales, eliminando riesgos de caída o daño estructural.",
       image: "/assets/real_roof_lifeline.jpg",
-      title: "Trabajos en Cubiertas",
-      desc: "Operamos todo tipo de techos y cubiertas que requieran de intervención especializada.",
-      bullets: [
-        "Mantenimiento general",
-        "Filtraciones de agua",
-        "Impermeabilizaciones",
-        "Instalación de plataformas",
-        "Montaje de cubierta"
-      ]
+      bullets: ["Mantenimiento general", "Filtraciones", "Impermeabilizaciones", "Instalación de plataformas", "Montaje de cubierta"]
     },
-    {
-      num: "06",
-      icon: "fa-tower-observation",
-      image: "/assets/real_tower_structure.jpg",
-      title: "Infraestructura Especial",
-      desc: "Campos de entrenamiento, plataformas especiales y Monster Heights.",
-    }
   ];
 
   return (
     <section className="services" id="servicios">
+      <div className="services-overlay"></div>
       <div className="wrap">
         <motion.div
           className="section-head"
@@ -488,8 +466,24 @@ function ServicesSection() {
               <div className="svc-content">
                 <div className="svc-top">
                   <span className="svc-num">{svc.num}</span>
-                  <div className="svc-icon">
-                    <i className={`fa-solid ${svc.icon}`} />
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    <button 
+                      onClick={() => onImageClick(svc.image)}
+                      title="Ver imagen"
+                      style={{
+                        width: '48px', height: '48px', borderRadius: '50%',
+                        background: 'rgba(0,0,0,0.5)', color: '#fff', border: 'none',
+                        cursor: 'pointer', transition: 'all 0.3s', backdropFilter: 'blur(4px)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'var(--orange)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.5)'}
+                    >
+                      <i className="fa-solid fa-expand" />
+                    </button>
+                    <div className="svc-icon">
+                      <i className={`fa-solid ${svc.icon}`} />
+                    </div>
                   </div>
                 </div>
                 <div className="svc-bottom">
@@ -857,6 +851,8 @@ function Footer() {
 }
 
 export default function Page() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <>
       <ProgressBar />
@@ -864,25 +860,14 @@ export default function Page() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ServicesSection />
+        <ServicesSection onImageClick={setSelectedImage} />
         <BenefitsSection />
         <RiskAnalysisSection />
         <ContactSection />
       </main>
       <Footer />
-      <motion.a
-        href="https://wa.me/573053439984?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios."
-        className="ws-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.12, rotate: 5 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2, type: "spring", stiffness: 200 }}
-      >
-        <i className="fa-brands fa-whatsapp" />
-      </motion.a>
+      <FloatingWhatsApp />
+      <ImageModal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
     </>
   );
 }
