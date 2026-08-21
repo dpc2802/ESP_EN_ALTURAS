@@ -393,11 +393,6 @@ nav a:hover { color: var(--orange); }
   padding: 120px 0; 
   overflow: hidden; 
   background: var(--white);
-  border-radius: 40px;
-  margin: -20px 0; /* slight overlap */
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 -10px 40px rgba(0,0,0,0.1), 0 10px 40px rgba(0,0,0,0.1);
 }
 .about-grid {
   display: grid;
@@ -706,11 +701,6 @@ nav a:hover { color: var(--orange); }
 .benefits {
   padding: 120px 0;
   background: var(--white);
-  border-radius: 40px;
-  margin: -20px 0;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 -10px 40px rgba(0,0,0,0.1), 0 10px 40px rgba(0,0,0,0.1);
 }
 .text-center { text-align: center; margin: 0 auto 60px; }
 
