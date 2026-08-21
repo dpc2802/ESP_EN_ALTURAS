@@ -7,6 +7,13 @@ import ImageModal from "../components/ImageModal";
 // Datos de prueba (ampliables cuando se suban las 40 fotos reales)
 const portfolioData = [
 
+  { id: 121, src: "/assets/portfolio/21_descenso_extremo_fachada.jpg", cat: "fachadas", alt: "Descenso de gran altura en entorno urbano" },
+  { id: 122, src: "/assets/portfolio/22_soldadura_techo.jpg", cat: "estructuras", alt: "Trabajo de soldadura en estructura de techo" },
+  { id: 123, src: "/assets/portfolio/23_soldadura_estructura.png", cat: "estructuras", alt: "Soldadura en viga estructural en altura" },
+  { id: 124, src: "/assets/portfolio/24_tensor_linea_vida.jpg", cat: "lineas", alt: "Detalle de tensor y absorbedor de energía en línea de vida" },
+  { id: 125, src: "/assets/portfolio/25_preparacion_cuerdas_azotea.jpg", cat: "fachadas", alt: "Equipo técnico preparando anclajes en azotea" },
+
+
   { id: 116, src: "/assets/portfolio/16_lectura_dinamometro.png", cat: "lineas", alt: "Lectura de tensión en dinamómetro digital" },
   { id: 117, src: "/assets/portfolio/17_lavado_cubierta_doble.jpg", cat: "cubiertas", alt: "Limpieza profunda de cubierta con hidrolavadora" },
   { id: 118, src: "/assets/portfolio/18_descenso_fachada_ladrillo.jpg", cat: "fachadas", alt: "Mantenimiento simultáneo en fachada de ladrillo" },
