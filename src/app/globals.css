@@ -242,6 +242,116 @@ nav a:hover { color: var(--orange); }
   flex-wrap: wrap;
 }
 
+.form-submit {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%;
+  padding: 16px;
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 16px;
+  box-shadow: 0 4px 16px var(--orange-glow);
+}
+
+/* ============ INTERACTIVE QUOTE STEPPER ============ */
+.quote-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.stepper-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.step-indicator {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.step-indicator.active {
+  color: var(--orange);
+}
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  margin: 0 12px;
+  border-radius: 2px;
+}
+.stepper-content {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+.service-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 500px) {
+  .service-cards-grid { grid-template-columns: 1fr; }
+}
+.service-card-select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.service-card-select i {
+  font-size: 24px;
+  color: var(--orange);
+}
+.service-card-select span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+.service-card-select:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+}
+.service-card-select.selected {
+  background: rgba(255, 94, 0, 0.1);
+  border-color: var(--orange);
+}
+.stepper-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  gap: 16px;
+}
+.btn-secondary-outline {
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-secondary-outline:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.4);
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
