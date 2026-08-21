@@ -7,6 +7,13 @@ import ImageModal from "../components/ImageModal";
 // Datos de prueba (ampliables cuando se suban las 40 fotos reales)
 const portfolioData = [
 
+  { id: 106, src: "/assets/portfolio/6_lavado_cubierta.jpg", cat: "cubiertas", alt: "Limpieza a presión en cubierta termoacústica" },
+  { id: 107, src: "/assets/portfolio/7_prueba_anclaje_2.jpg", cat: "lineas", alt: "Certificación de anclaje estructural con dinamómetro" },
+  { id: 108, src: "/assets/portfolio/8_pintura_escalera.jpg", cat: "fachadas", alt: "Pintura exterior en baja altura con escalera certificada" },
+  { id: 109, src: "/assets/portfolio/9_pintura_fachada_cuerdas.jpg", cat: "fachadas", alt: "Aplicación de recubrimiento en muro ciego" },
+  { id: 110, src: "/assets/portfolio/10_pintura_fachada_cuerdas_amplio.jpg", cat: "fachadas", alt: "Trabajo simultáneo de pintura en torre residencial" },
+
+
   { id: 101, src: "/assets/portfolio/1_pintura_fachada.jpg", cat: "fachadas", alt: "Aplicación de pintura primera mano" },
   { id: 102, src: "/assets/portfolio/2_prueba_anclaje.png", cat: "lineas", alt: "Prueba de extracción de anclaje con hidrájaws" },
   { id: 103, src: "/assets/portfolio/3_lavado_fachada.jpg", cat: "fachadas", alt: "Lavado de fachada edificio alto" },
