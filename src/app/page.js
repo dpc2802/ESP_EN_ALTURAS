@@ -78,7 +78,15 @@ function HeroSection() {
 
   return (
     <section className="hero" id="inicio">
-      <motion.div className="hero-image" style={{ y: imgY }}><Image src="/assets/real_rope_access.jpg" alt="Trabajo seguro en alturas" fill priority style={{ objectFit: "cover" }} /></motion.div>
+      <motion.div className="hero-image" style={{ y: imgY }}>
+        <Image 
+          src="/assets/hero-movil.png" 
+          alt="Trabajo seguro en alturas" 
+          fill 
+          priority 
+          style={{ objectFit: "cover", objectPosition: "30% 20%" }} 
+        />
+      </motion.div>
       <div className="hero-mesh" />
       <div className="wrap">
         <div className="hero-content">
