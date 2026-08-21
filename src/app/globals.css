@@ -33,7 +33,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--white);
+  background: var(--blue-950);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -389,7 +389,16 @@ nav a:hover { color: var(--orange); }
 }
 
 /* ============ ABOUT ============ */
-.about { padding: 120px 0; overflow: hidden; }
+.about { 
+  padding: 120px 0; 
+  overflow: hidden; 
+  background: var(--white);
+  border-radius: 40px;
+  margin: -20px 0; /* slight overlap */
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.1), 0 10px 40px rgba(0,0,0,0.1);
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -697,6 +706,11 @@ nav a:hover { color: var(--orange); }
 .benefits {
   padding: 120px 0;
   background: var(--white);
+  border-radius: 40px;
+  margin: -20px 0;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.1), 0 10px 40px rgba(0,0,0,0.1);
 }
 .text-center { text-align: center; margin: 0 auto 60px; }
 
