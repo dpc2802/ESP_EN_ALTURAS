@@ -30,7 +30,7 @@ export default function Header() {
   const links = [
     { href: "/#empresa", label: "Empresa" },
     { href: "/#servicios", label: "Servicios" },
-    { href: "/#beneficios", label: "Beneficios" },
+    { href: "/portafolio", label: "Casos de Éxito" },
     { href: "/#contacto", label: "Contacto" },
   ];
 

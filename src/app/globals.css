@@ -1594,3 +1594,19 @@ nav a:hover { color: var(--orange); }
 .floating-phone-wrap { position: fixed; bottom: 28px; left: 28px; z-index: 998; }
 .floating-phone-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--blue-600); color: white; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 8px 24px rgba(11,29,53,0.3); text-decoration: none; border: 2px solid rgba(255,255,255,0.2); }
 .floating-phone-btn:hover { color: white; }
+
+/* MASONRY GRID */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 16px;
+}
+@media (min-width: 768px) { .masonry-grid { column-count: 3; } }
+@media (min-width: 1024px) { .masonry-grid { column-count: 4; } }
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+.portfolio-img-hover:hover {
+  transform: scale(1.05);
+}
+
