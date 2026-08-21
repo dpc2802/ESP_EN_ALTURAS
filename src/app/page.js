@@ -277,6 +277,7 @@ function AboutSection() {
 
 /* ── Services Section (Portafolio) ── */
 function ServicesSection({ onImageClick }) {
+  const router = useRouter();
   const [ref, inView] = useInView(0.1);
   const services = [
     {
@@ -343,7 +344,19 @@ function ServicesSection({ onImageClick }) {
           animate={inView ? "show" : "hidden"}
         >
           {services.map((svc) => (
-            <motion.div className="svc-card-img" key={svc.num} variants={fadeUp}>
+            <motion.div 
+              className="svc-card-img" 
+              key={svc.num} 
+              variants={fadeUp}
+              onClick={() => {
+                if(svc.link && svc.link.startsWith("/#")) {
+                  document.querySelector(svc.link.replace("/#", "#"))?.scrollIntoView({ behavior: "smooth" });
+                } else if (svc.link) {
+                  router.push(svc.link);
+                }
+              }}
+              style={{ cursor: "pointer" }}
+            >
               <img src={svc.image} alt={svc.title} className="svc-img-bg" />
               <div className="svc-img-overlay" />
               
@@ -352,13 +365,14 @@ function ServicesSection({ onImageClick }) {
                   <span className="svc-num">{svc.num}</span>
                   <div style={{ display: 'flex', gap: '12px' }}>
                     <button 
-                      onClick={() => onImageClick(svc.image)}
+                      onClick={(e) => { e.stopPropagation(); onImageClick(svc.image); }}
                       title="Ver imagen"
                       style={{
                         width: '48px', height: '48px', borderRadius: '50%',
                         background: 'rgba(0,0,0,0.5)', color: '#fff', border: 'none',
                         cursor: 'pointer', transition: 'all 0.3s', backdropFilter: 'blur(4px)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px'
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px',
+                        position: 'relative', zIndex: 10
                       }}
                       onMouseEnter={(e) => e.currentTarget.style.background = 'var(--orange)'}
                       onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.5)'}
@@ -374,13 +388,18 @@ function ServicesSection({ onImageClick }) {
                   <h3>{svc.title}</h3>
                   <p>{svc.desc}</p>
                   {svc.bullets && (
-                    <ul className="svc-bullets">
+                    <ul className="svc-bullets" style={{ marginBottom: "20px" }}>
                       {svc.bullets.map((b, idx) => (
                         <li key={idx}>
                           <i className="fa-solid fa-check" /> {b}
                         </li>
                       ))}
                     </ul>
+                  )}
+                  {svc.link && (
+                    <div className="btn-secondary" style={{ padding: "10px 16px", fontSize: "14px", width: "fit-content", display: "inline-flex", pointerEvents: "none" }}>
+                      Ver detalles <i className="fa-solid fa-arrow-right" style={{ marginLeft: "8px" }}/>
+                    </div>
                   )}
                 </div>
               </div>
