@@ -15,10 +15,6 @@ const inter = Inter({
   display: "swap",
 });
 
-export const viewport = {
-  themeColor: "#0b1d35",
-};
-
 export const metadata = {
   metadataBase: new URL("https://esp-en-alturas.vercel.app"),
   title: "Especialistas en Alturas SAS — Trabajo Seguro en Altura",
