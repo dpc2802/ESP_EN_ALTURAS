@@ -7,6 +7,13 @@ import ImageModal from "../components/ImageModal";
 // Datos de prueba (ampliables cuando se suban las 40 fotos reales)
 const portfolioData = [
 
+  { id: 116, src: "/assets/portfolio/16_lectura_dinamometro.png", cat: "lineas", alt: "Lectura de tensión en dinamómetro digital" },
+  { id: 117, src: "/assets/portfolio/17_lavado_cubierta_doble.jpg", cat: "cubiertas", alt: "Limpieza profunda de cubierta con hidrolavadora" },
+  { id: 118, src: "/assets/portfolio/18_descenso_fachada_ladrillo.jpg", cat: "fachadas", alt: "Mantenimiento simultáneo en fachada de ladrillo" },
+  { id: 119, src: "/assets/portfolio/19_lavado_fachada_ladrillo.png", cat: "fachadas", alt: "Hidrolavado a presión en edificio de ladrillo" },
+  { id: 120, src: "/assets/portfolio/20_trabajador_fachada_ladrillo.png", cat: "fachadas", alt: "Operario especialista en alturas inspeccionando fachada" },
+
+
   { id: 111, src: "/assets/portfolio/11_instalacion_linea_techo.jpg", cat: "lineas", alt: "Instalación de sistema de línea de vida en techo" },
   { id: 112, src: "/assets/portfolio/12_ajuste_linea_vida.jpg", cat: "lineas", alt: "Ajuste y tensado de línea de vida estructural" },
   { id: 113, src: "/assets/portfolio/13_inspeccion_cubierta.png", cat: "cubiertas", alt: "Inspección técnica de riesgo en cubierta" },
