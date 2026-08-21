@@ -727,16 +727,25 @@ function ContactSection() {
                   exit={{ opacity: 0 }}
                   onSubmit={(e) => {
                     e.preventDefault();
+                    const formData = new FormData(e.target);
+                    const nombre = formData.get("nombre");
+                    const telefono = formData.get("telefono");
+                    const servicio = formData.get("servicio");
+                    const mensaje = formData.get("mensaje") || "Sin detalles adicionales.";
+                    
+                    const text = `Hola Especialistas en Alturas,\n\nSoy *${nombre}*.\nMi teléfono de contacto es: ${telefono}.\n\nMe interesa el servicio de: *${servicio}*.\n\nDetalles:\n${mensaje}`;
+                    window.open(`https://wa.me/573053439984?text=${encodeURIComponent(text)}`, "_blank");
                     setSent(true);
                   }}
                 >
                   {[
-                    { label: "Su Nombre o Empresa", type: "text", placeholder: "Ej. Constructora SAS", required: true },
-                    { label: "Teléfono / WhatsApp", type: "tel", placeholder: "Número de contacto", required: true },
+                    { label: "Su Nombre o Empresa", name: "nombre", type: "text", placeholder: "Ej. Constructora SAS", required: true },
+                    { label: "Teléfono / WhatsApp", name: "telefono", type: "tel", placeholder: "Número de contacto", required: true },
                   ].map((f, i) => (
                     <div className="form-row" key={i}>
                       <label>{f.label}</label>
                       <input
+                        name={f.name}
                         type={f.type}
                         className="form-input"
                         placeholder={f.placeholder}
@@ -746,18 +755,19 @@ function ContactSection() {
                   ))}
                   <div className="form-row">
                     <label>Servicio de Interés</label>
-                    <select className="form-input" required defaultValue="">
+                    <select name="servicio" className="form-input" required defaultValue="">
                       <option value="" disabled>Seleccione una opción...</option>
-                      <option value="estructuras">Estructuras Metálicas</option>
-                      <option value="fachadas">Trabajos en Fachadas</option>
-                      <option value="lineas">Líneas de Vida y Anclajes</option>
-                      <option value="cubiertas">Trabajos en Cubiertas</option>
-                      <option value="asesoria">Análisis y Asesoría</option>
+                      <option value="Estructuras Metálicas">Estructuras Metálicas</option>
+                      <option value="Trabajos en Fachadas">Trabajos en Fachadas</option>
+                      <option value="Líneas de Vida y Anclajes">Líneas de Vida y Anclajes</option>
+                      <option value="Trabajos en Cubiertas">Trabajos en Cubiertas</option>
+                      <option value="Análisis y Asesoría">Análisis y Asesoría</option>
                     </select>
                   </div>
                   <div className="form-row">
                     <label>Mensaje</label>
                     <textarea
+                      name="mensaje"
                       className="form-input"
                       rows={4}
                       placeholder="Describa brevemente su necesidad..."
@@ -771,7 +781,7 @@ function ContactSection() {
                     whileTap={{ scale: 0.98 }}
                   >
                     <i className="fa-solid fa-paper-plane" />
-                    Solicitar Información
+                    Enviar a WhatsApp
                   </motion.button>
                 </motion.form>
               )}
@@ -840,9 +850,9 @@ function Footer() {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Especialistas en Alturas S.A.S. Todos los derechos reservados.</p>
           <div className="footer-bottom-links">
-            <a href="#">Política de Privacidad</a>
+            <a href="#" onClick={(e) => e.preventDefault()}>Política de Privacidad</a>
             <span className="separator">|</span>
-            <a href="#">Términos y Condiciones</a>
+            <a href="#" onClick={(e) => e.preventDefault()}>Términos y Condiciones</a>
           </div>
         </div>
       </div>
