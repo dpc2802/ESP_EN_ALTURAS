@@ -314,95 +314,65 @@ function TrustedBySection() {
     { src: "/assets/clients/metro.png", alt: "Metro de Medellín" },
     { src: "/assets/clients/viva.png", alt: "Viva de La Ceja" },
     { src: "/assets/clients/colanta.png", alt: "Colanta" },
+    { src: "/assets/clients/jardin.png", alt: "Jardín Botánico" },
+    // Duplicate to create 8 faces of the 3D cylinder
+    { src: "/assets/clients/metro.png", alt: "Metro de Medellín" },
+    { src: "/assets/clients/viva.png", alt: "Viva de La Ceja" },
+    { src: "/assets/clients/colanta.png", alt: "Colanta" },
     { src: "/assets/clients/jardin.png", alt: "Jardín Botánico" }
   ];
-
-  // Seamless infinite loop by duplicating
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
     <section style={{ 
       background: 'var(--navy)', 
-      padding: '60px 0', 
+      padding: '25px 0 45px 0', 
       position: 'relative', 
       overflow: 'hidden',
       borderTop: '1px solid rgba(243, 107, 34, 0.2)',
-      borderBottom: '1px solid rgba(243, 107, 34, 0.1)',
-      boxShadow: '0 -20px 50px rgba(0,0,0,0.5), inset 0 20px 50px rgba(0,0,0,0.5)'
+      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
     }}>
-      {/* Background glowing orb */}
-      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '80px', background: 'var(--orange)', filter: 'blur(100px)', opacity: 0.12, zIndex: 0 }} />
-
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '20px', marginBottom: '50px' }}
-        >
-          <div style={{ height: '2px', width: '50px', background: 'linear-gradient(90deg, transparent, var(--orange))' }} />
-          <h3 style={{ margin: 0, color: '#fff', fontSize: '15px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', textShadow: '0 0 15px rgba(255,255,255,0.2)' }}>
-            Respaldo de Gigantes
-          </h3>
-          <div style={{ height: '2px', width: '50px', background: 'linear-gradient(-90deg, transparent, var(--orange))' }} />
-        </motion.div>
+        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '20px', textAlign: 'center' }}>
+          Respaldados por
+        </p>
 
-        {/* Infinite Marquee Track */}
-        <div className="marquee-container" style={{ width: '100%', overflow: 'hidden', position: 'relative', padding: '20px 0' }}>
-          {/* Fading edges to blend with background */}
-          <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '15vw', background: 'linear-gradient(to right, var(--navy) 10%, transparent 100%)', zIndex: 2, pointerEvents: 'none' }} />
-          <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '15vw', background: 'linear-gradient(to left, var(--navy) 10%, transparent 100%)', zIndex: 2, pointerEvents: 'none' }} />
-
-          <div className="marquee-track" style={{ display: 'flex', gap: '40px', alignItems: 'center', width: 'max-content' }}>
-            {duplicatedLogos.map((logo, i) => (
-              <div key={i} className="marquee-logo-card" style={{
-                position: 'relative',
-                width: '220px',
-                height: '110px',
+        {/* 3D Roulette Container */}
+        <div style={{ perspective: '800px', width: '200px', height: '80px', position: 'relative' }}>
+          <div className="roulette-3d" style={{ width: '100%', height: '100%', position: 'absolute', transformStyle: 'preserve-3d' }}>
+            {logos.map((logo, i) => (
+              <div key={i} className="roulette-item" style={{
+                position: 'absolute',
+                width: '180px',
+                height: '75px',
+                left: '10px',
+                top: '2.5px',
                 background: 'rgba(255,255,255,0.03)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '16px',
+                backdropFilter: 'blur(4px)',
+                WebkitBackdropFilter: 'blur(4px)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '25px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                cursor: 'pointer',
-                flexShrink: 0
+                padding: '15px',
+                transform: `rotateY(${i * 45}deg) translateZ(220px)`,
+                backfaceVisibility: 'hidden'
               }}>
-                <div style={{ position: 'relative', width: '100%', height: '100%', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.1))', transition: 'all 0.3s' }} className="logo-img-wrap">
+                <div style={{ position: 'relative', width: '100%', height: '100%', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.1))' }}>
                   <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} unoptimized />
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
       <style dangerouslySetInnerHTML={{ __html: `
-        .marquee-track {
-          animation: scrollMarquee 35s linear infinite;
+        .roulette-3d {
+          animation: spinRoulette 25s infinite linear;
         }
-        .marquee-container:hover .marquee-track {
-          animation-play-state: paused;
-        }
-        .marquee-logo-card:hover {
-          background: rgba(255,255,255,0.08) !important;
-          border-color: rgba(243, 107, 34, 0.5) !important;
-          transform: translateY(-8px) scale(1.05);
-          box-shadow: 0 15px 40px rgba(243, 107, 34, 0.25) !important;
-          z-index: 10;
-        }
-        .marquee-logo-card:hover .logo-img-wrap {
-          filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)) !important;
-        }
-        @keyframes scrollMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        @keyframes spinRoulette {
+          from { transform: rotateY(0deg); }
+          to { transform: rotateY(-360deg); }
         }
       `}} />
     </section>
