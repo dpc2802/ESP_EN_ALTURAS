@@ -1,7 +1,10 @@
-"use client";
-import { motion, AnimatePresence } from "framer-motion";
+const fs = require('fs');
 
-export default function ImageModal({ selectedItem, setSelectedItem, onNext, onPrev }) {
+let file = 'src/app/components/ImageModal.jsx';
+let text = fs.readFileSync(file, 'utf8');
+
+const regex = /export default function ImageModal\(\{ selectedItem, setSelectedItem \}\) \{/;
+const replace = `export default function ImageModal({ selectedItem, setSelectedItem, onNext, onPrev }) {
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
 
@@ -34,38 +37,27 @@ export default function ImageModal({ selectedItem, setSelectedItem, onNext, onPr
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onNext, onPrev]);
-  return (
-    <AnimatePresence>
-      {selectedItem && (
-        <motion.div
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-          initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-          animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
-          exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          onClick={() => setSelectedItem(null)}
-          style={{
-            position: 'fixed', inset: 0, zIndex: 1000,
-            background: 'rgba(0,0,0,0.7)', padding: '20px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'zoom-out'
-          }}
-        >
-          <button 
-            style={{
-              position: 'absolute', top: '24px', right: '32px',
-              color: '#fff', fontSize: '32px', zIndex: 1001,
-              background: 'none', border: 'none', cursor: 'pointer'
-            }}
-            onClick={() => setSelectedItem(null)}
-          >
-            <i className="fa-solid fa-xmark"></i>
-          </button>
-          
-          {onPrev && (
+  }, [onNext, onPrev]);`;
+
+text = text.replace(regex, replace);
+
+// Add imports for useState, useEffect if not there
+if (!text.includes('useState')) {
+  text = text.replace(/import \{ motion, AnimatePresence \} from "framer-motion";/, 'import { motion, AnimatePresence } from "framer-motion";\nimport { useState, useEffect } from "react";');
+} else if (!text.includes('useEffect')) {
+  text = text.replace(/import \{ useState \} from "react";/g, 'import { useState, useEffect } from "react";');
+}
+
+// Add UI arrows and touch events to motion.div container
+text = text.replace(
+  /<motion\.div\s+initial=\{\{ opacity: 0/,
+  `<motion.div\n          onTouchStart={onTouchStart}\n          onTouchMove={onTouchMove}\n          onTouchEnd={onTouchEnd}\n          initial={{ opacity: 0`
+);
+
+// Add left and right arrows
+text = text.replace(
+  /<motion\.img/,
+  `{onPrev && (
             <button 
               style={{
                 position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)',
@@ -97,21 +89,16 @@ export default function ImageModal({ selectedItem, setSelectedItem, onNext, onPr
             </button>
           )}
 
-          <motion.img
-            onClick={(e) => e.stopPropagation()}
-            layoutId={`portfolio-img-${selectedItem.id}`} // SHARED ELEMENT ID
-            src={selectedItem.src}
-            alt={selectedItem.alt}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              width: '100%', maxWidth: '1000px', maxHeight: '90vh',
-              objectFit: 'contain', borderRadius: '12px',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
+          <motion.img`
+);
+
+// Prevent closing modal when clicking inside arrows
+// Actually they have e.stopPropagation(). But clicking the image itself also closes?
+// Wait, the main container has onClick={() => setSelectedItem(null)}
+// So the image needs onClick={(e) => e.stopPropagation()}
+text = text.replace(
+  /<motion\.img\s+layoutId/,
+  `<motion.img\n            onClick={(e) => e.stopPropagation()}\n            layoutId`
+);
+
+fs.writeFileSync(file, text);

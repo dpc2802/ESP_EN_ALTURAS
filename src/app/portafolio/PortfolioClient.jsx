@@ -64,6 +64,27 @@ export default function PortfolioClient() {
     ? portfolioData 
     : portfolioData.filter(item => item.cat === filter);
 
+  const handleNext = () => {
+    if (!selectedItem) return;
+    const currentIndex = filteredData.findIndex(item => item.id === selectedItem.id);
+    if (currentIndex < filteredData.length - 1) {
+      setSelectedItem(filteredData[currentIndex + 1]);
+    } else {
+      setSelectedItem(filteredData[0]); // Wrap around
+    }
+  };
+
+  const handlePrev = () => {
+    if (!selectedItem) return;
+    const currentIndex = filteredData.findIndex(item => item.id === selectedItem.id);
+    if (currentIndex > 0) {
+      setSelectedItem(filteredData[currentIndex - 1]);
+    } else {
+      setSelectedItem(filteredData[filteredData.length - 1]); // Wrap around
+    }
+  };
+  
+
   return (
     <>
       {/* FILTROS TIPO "PILL" CON ANIMACIÓN FLIP */}
@@ -163,26 +184,7 @@ export default function PortfolioClient() {
                     background: '#fff'
                   }}
                 >
-                  {/* Badge numérico en la esquina */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '12px',
-                    left: '12px',
-                    width: '32px',
-                    height: '32px',
-                    background: '#fff',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: '800',
-                    fontSize: '12px',
-                    color: 'var(--navy)',
-                    zIndex: 2,
-                    boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
-                  }}>
-                    {badgeNumber}
-                  </div>
+                  
 
                   <motion.img
                     layoutId={`portfolio-img-${item.id}`}
@@ -216,7 +218,7 @@ export default function PortfolioClient() {
         </button>
       </div>
 
-      <ImageModal selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+      <ImageModal selectedItem={selectedItem} setSelectedItem={setSelectedItem} onNext={handleNext} onPrev={handlePrev} />
     </>
   );
 }

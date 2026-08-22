@@ -848,26 +848,7 @@ function PortfolioTeaser() {
                   flexShrink: 0
                 }}
               >
-                {/* Badge numérico en la esquina */}
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  width: '32px',
-                  height: '32px',
-                  background: 'var(--navy)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: '800',
-                  fontSize: '12px',
-                  color: '#fff',
-                  zIndex: 2,
-                  boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
-                }}>
-                  {badgeNumber}
-                </div>
+                
 
                 <Image src={item.src} alt={item.alt} fill style={{ objectFit: 'cover' }} />
 
