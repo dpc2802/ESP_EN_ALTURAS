@@ -191,24 +191,7 @@ export default function PortfolioClient() {
                     style={{ width: '100%', height: 'auto', display: 'block' }}
                   />
 
-                  {/* Barra inferior Glassmorphism */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: '16px 20px',
-                    background: 'rgba(255, 255, 255, 0.75)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    borderTop: '1px solid rgba(255,255,255,0.5)',
-                    color: 'var(--navy)',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    zIndex: 2
-                  }}>
-                    {item.alt}
-                  </div>
+                  
                 </motion.div>
               </motion.div>
             );
