@@ -310,7 +310,7 @@ function AboutSection() {
 }
 
 /* ── Services Section (Portafolio) ── */
-function ServicesSection({ onImageClick }) {
+function ServicesSection({ onItemClick }) {
   const router = useRouter();
   const [ref, inView] = useInView(0.1);
   const services = [
@@ -409,7 +409,7 @@ function ServicesSection({ onImageClick }) {
                   <span className="svc-num">{svc.num}</span>
                   <div style={{ display: 'flex', gap: '12px' }}>
                     <button 
-                      onClick={(e) => { e.stopPropagation(); onImageClick(svc.image); }}
+                      onClick={(e) => { e.stopPropagation(); onItemClick({ id: svc.num, src: svc.image, alt: svc.title }); }}
                       title="Ver imagen"
                       style={{
                         width: '48px', height: '48px', borderRadius: '50%',
@@ -885,7 +885,7 @@ function ContactSection() {
   );
 }
 export default function Page() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   return (
     <>
@@ -894,7 +894,7 @@ export default function Page() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ServicesSection onImageClick={setSelectedImage} />
+        <ServicesSection onItemClick={setSelectedItem} />
         <BenefitsSection />
         <FAQSection />
         <RiskAnalysisSection />
@@ -906,7 +906,7 @@ export default function Page() {
       <FloatingWhatsApp />
       <FloatingPhone />
       <ScrollToTop />
-      <ImageModal selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
+      <ImageModal selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
     </>
   );
 }
