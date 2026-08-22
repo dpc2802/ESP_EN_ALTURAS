@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
               <li>
                 <i className="fa-solid fa-phone"></i>
-                <a href="https://wa.me/573053439984" target="_blank" rel="noreferrer">305 343 9984</a>
+                <a href="tel:+573053439984">305 343 9984</a>
               </li>
               <li>
                 <i className="fa-solid fa-location-dot"></i>
