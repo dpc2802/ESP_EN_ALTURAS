@@ -1474,7 +1474,7 @@ nav a:hover { color: var(--orange); }
   /* Footer */
   .footer-pro { padding: 48px 0 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer-logo { max-width: 200px; }
+  .footer-logo { max-width: 200px; height: auto; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 
   .ws-btn { bottom: 20px; right: 20px; width: 52px; height: 52px; font-size: 24px; }
