@@ -549,7 +549,7 @@ function ServicesSection({ onItemClick }) {
       title: "LÍNEAS DE VIDA",
       desc: "Sistemas anticaídas certificados para garantizar la seguridad de su personal en cualquier tipo de cubierta o estructura.",
       image: "/assets/real_lifeline_testing.jpg",
-      bullets: ["Líneas de vida horizontales", "Líneas de vida verticales", "Implementación de puntos de anclaje"]
+      bullets: ["Líneas de vida horizontales", "Líneas de vida verticales", "Puntos de anclaje (5.000 lb)"]
     },
     {
       num: "04",
@@ -842,8 +842,8 @@ function RiskAnalysisSection() {
     { title: "Sistemas contra caídas", desc: "Certificación de resistencia 23kN" },
     { title: "Actas de vecindad", desc: "Protección a terceros y entorno" },
     { title: "Protección personal", desc: "Arneses y cascos certificados" },
-    { title: "Puntos de anclaje", desc: "Verificación de capacidad de carga" },
-    { title: "Plan de emergencia", desc: "Protocolo de rescate vertical" },
+    { title: "Puntos de anclaje", desc: "Capacidad certificada de 5.000 Libras" },
+    { title: "Plan de emergencia", desc: "Protocolo de rescate en alturas" },
     { title: "Puntos de encuentro", desc: "Rutas de evacuación seguras" }
   ];
   return (
