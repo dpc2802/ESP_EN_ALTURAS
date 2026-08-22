@@ -791,9 +791,9 @@ function PortfolioTeaser() {
   const teaserData = [
     { src: "/assets/portfolio/21_descenso_extremo_fachada.jpg", alt: "Descenso de gran altura" },
     { src: "/assets/portfolio/22_soldadura_techo.jpg", alt: "Soldadura en techo" },
-    { src: "/assets/portfolio/13_inspeccion_cubierta.png", alt: "Inspección técnica" },
-    { src: "/assets/portfolio/14_prueba_extraccion.jpg", alt: "Prueba con Hydrajaws" },
-    { src: "/assets/portfolio/19_lavado_fachada_ladrillo.png", alt: "Hidrolavado a presión" }
+    { src: "/assets/portfolio/viva_centro_comercial.png", alt: "Lavado Centro Comercial" },
+    { src: "/assets/portfolio/facade_painting_building.jpg", alt: "Pintura de Fachadas" },
+    { src: "/assets/portfolio/workers_roof_red_shirts.jpg", alt: "Trabajo en Cubiertas" }
   ];
 
   return (
@@ -811,9 +811,7 @@ function PortfolioTeaser() {
             ALGUNOS DE NUESTROS<br />
             <span style={{ color: 'var(--orange)' }}>TRABAJOS</span>
           </h2>
-          <p style={{ color: '#666', fontSize: '16px' }}>
-            Swipe horizontal — vista previa de 5 fotos dentro de la landing.
-          </p>
+          
         </motion.div>
 
         {/* Swipe Native Carousel */}
