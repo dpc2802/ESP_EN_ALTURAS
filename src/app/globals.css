@@ -979,7 +979,7 @@ nav a:hover { color: var(--orange); }
   padding: 120px 0;
   position: relative;
   overflow: hidden;
-  background: var(--blue-950);
+  background: #f4f6f8;
 }
 .contact::before {
   content: ''; position: absolute; inset: 0;
@@ -993,7 +993,7 @@ nav a:hover { color: var(--orange); }
 }
 .contact::after {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 70% 30%, transparent 0%, var(--blue-950) 80%);
+  background: radial-gradient(circle at 70% 30%, transparent 0%, rgba(244, 246, 248, 1) 80%);
   z-index: 0;
   pointer-events: none;
 }
@@ -1010,15 +1010,15 @@ nav a:hover { color: var(--orange); }
 .contact h2 {
   font-family: var(--font-head);
   font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--navy);
   line-height: 1.1;
   margin-bottom: 20px;
 }
 .contact-lead {
   font-size: 16px;
-  color: rgba(255,255,255,0.5);
+  color: #555;
   line-height: 1.7;
   margin-bottom: 48px;
 }
@@ -1030,8 +1030,9 @@ nav a:hover { color: var(--orange); }
 }
 .contact-method-icon {
   width: 48px; height: 48px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   font-size: 20px;
@@ -1046,26 +1047,26 @@ nav a:hover { color: var(--orange); }
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  color: rgba(255,255,255,0.3);
+  color: rgba(0,0,0,0.4);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .contact-method-val {
   font-family: var(--font-head);
   font-size: 16px;
-  font-weight: 500;
-  color: var(--white);
+  font-weight: 700;
+  color: var(--navy);
   word-break: break-word;
   overflow-wrap: break-word;
 }
 
 /* Form */
 .contact-form-wrap {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  border-radius: 24px;
   padding: 48px;
-  backdrop-filter: blur(8px);
 }
 .form-row { margin-bottom: 28px; }
 .form-row label {
@@ -1513,9 +1514,10 @@ nav a:hover { color: var(--orange); }
   max-height: 500px;
   overflow-y: auto;
   padding: 16px;
-  background: rgba(11,29,53,0.5);
+  background: #f8f9fa;
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
   scrollbar-width: thin;
 }
 .chat-msg {
@@ -1526,10 +1528,12 @@ nav a:hover { color: var(--orange); }
   line-height: 1.4;
 }
 .chat-msg.bot {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+  background: #fff;
+  color: var(--navy);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.03);
 }
 .chat-msg.user {
   background: var(--orange);
@@ -1544,17 +1548,19 @@ nav a:hover { color: var(--orange); }
   margin-top: 8px;
 }
 .chat-option-btn {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: var(--navy);
   padding: 10px 16px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500;
   transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
 .chat-option-btn:hover {
   background: var(--orange);

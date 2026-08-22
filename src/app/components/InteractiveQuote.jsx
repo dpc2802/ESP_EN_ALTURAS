@@ -117,7 +117,7 @@ Teléfono: ${formData.telefono}
   return (
     <div className="quote-stepper">
       <div className="stepper-header" style={{ justifyContent: 'center' }}>
-        <h2 style={{ fontSize: '20px', margin: 0, fontFamily: 'var(--font-head)', color: '#fff' }}>
+        <h2 style={{ fontSize: '20px', margin: 0, fontFamily: 'var(--font-head)', color: 'var(--navy)' }}>
           <i className="fa-solid fa-robot" style={{ color: 'var(--orange)', marginRight: '8px' }}></i> Asistente de Cotización
         </h2>
       </div>
