@@ -333,7 +333,7 @@ function TrustedBySection() {
     }}>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '20px', textAlign: 'center' }}>
-          Respaldados por
+          Confían en nosotros
         </p>
 
         {/* 3D Roulette Container */}
