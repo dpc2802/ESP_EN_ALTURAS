@@ -388,7 +388,7 @@ function AboutSection() {
           </motion.div>
           
           <motion.div variants={fadeUp}>
-            <span className="about-tag">01. Nuestra Empresa</span>
+            <span className="about-tag">Nuestra Empresa</span>
             <h2>Minimizamos los riesgos en cada ejecución.</h2>
             <p className="about-lead">
               Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, creada en el año 2014.
@@ -472,7 +472,7 @@ function ServicesSection({ onItemClick }) {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-eyebrow">02. Portafolio</span>
+          <span className="section-eyebrow">Portafolio</span>
           <h2 className="section-title">Servicios Especializados en Altura</h2>
         </motion.div>
 
@@ -606,7 +606,7 @@ function BenefitsSection() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="about-tag">03. Valor Agregado</span>
+          <span className="about-tag">Valor Agregado</span>
           <h2>Beneficios para su empresa</h2>
         </motion.div>
 
@@ -674,7 +674,7 @@ function FAQSection() {
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '50px' }}
         >
-          <span className="about-tag" style={{ border: '1px solid rgba(255,255,255,0.2)', color: '#fff', background: 'rgba(255,255,255,0.05)' }}>06. FAQ</span>
+          <span className="about-tag" style={{ border: '1px solid rgba(255,255,255,0.2)', color: '#fff', background: 'rgba(255,255,255,0.05)' }}>FAQ</span>
           <h2 style={{ color: '#fff', fontSize: '36px', marginTop: '20px' }}>Preguntas Corporativas Frecuentes</h2>
         </motion.div>
 
@@ -947,7 +947,7 @@ function ContactSection() {
           animate={inView ? "show" : "hidden"}
         >
           <motion.div className="contact-info" variants={fadeUp}>
-            <span className="section-eyebrow">04. Contacto Oficial</span>
+            <span className="section-eyebrow">Contacto Oficial</span>
             <h2>¿Listo para empezar su proyecto?</h2>
             <p className="contact-lead">
               Comuníquese directamente con nuestra gerencia para recibir asesoría personalizada y cotizaciones a la medida.
