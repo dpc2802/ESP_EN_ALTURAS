@@ -34,7 +34,7 @@ export default function InteractiveQuote() {
   }, [messages, isTyping]);
 
   const addMessage = (msg) => {
-    setMessages(prev => [...prev, { id: Date.now(), ...msg }]);
+    setMessages(prev => [...prev, { id: Date.now() + Math.random().toString(36).substr(2, 9), ...msg }]);
   };
 
   const simulateBot = (botMessages) => {
