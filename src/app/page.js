@@ -105,30 +105,30 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.7 }}
           >
-            Soluciones Especializadas <br />
-            <span>en Alturas</span>
+            EXPERIENCIA, CALIDAD Y SEGURIDAD
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
+            className="hero-desc"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.85, duration: 0.7 }}
           >
-            Mantenimiento, limpieza, pintura e instalación de estructuras con total seguridad y cumplimiento normativo.
+            En trabajos de alto riesgo. Garantizamos a nuestros clientes una correcta ejecución minimizando los riesgos a la hora de ejecutar los contratos.
           </motion.p>
 
           <motion.div
             className="hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
+            transition={{ delay: 1, duration: 0.5 }}
           >
             <a href="https://wa.me/3143588264" target="_blank" rel="noreferrer" className="btn btn-primary">
               <i className="fa-brands fa-whatsapp" style={{ marginRight: '8px' }}></i>
-              Cotizar Proyecto
+              Agendar Visita
             </a>
             <a href="#servicios" className="btn btn-secondary">
-              Nuestros Servicios
+              Ver Servicios
             </a>
           </motion.div>
         </div>
