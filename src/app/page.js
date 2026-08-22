@@ -260,7 +260,7 @@ function HeroSection() {
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(243, 107, 34, 0.3)'; }}
             >
               <i className="fa-brands fa-whatsapp" style={{ marginRight: '10px', fontSize: '20px' }}></i>
-              AGENDAR VISITA
+              AGENDA TU CITA
             </a>
             
             <a 
