@@ -334,13 +334,13 @@ function AboutSection() {
         position: 'relative',
         padding: '120px 0',
         background: 'url(/assets/portfolio/workers_roof_red_shirts.jpg) center/cover fixed no-repeat',
-        color: '#fff',
+        color: 'var(--navy)',
         overflow: 'hidden'
       }}
     >
       {/* Premium Dark Overlay */}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(11, 29, 53, 0.95) 0%, rgba(11, 29, 53, 0.85) 100%)', zIndex: 1 }} />
-      <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(243,107,34,0.15) 0%, rgba(0,0,0,0) 60%)', filter: 'blur(60px)', zIndex: 1 }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 242, 245, 0.85) 100%)', zIndex: 1 }} />
+      <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(243,107,34,0.1) 0%, rgba(255,255,255,0) 60%)', filter: 'blur(60px)', zIndex: 1 }} />
 
       <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div
@@ -351,7 +351,7 @@ function AboutSection() {
           animate={inView ? "show" : "hidden"}
         >
           {/* Left Side: Image with Hotspots */}
-          <motion.div className="about-img-wrap hotspot-container" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <motion.div className="about-img-wrap hotspot-container" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
             <img
               src="/assets/lifeline_safety.jpg"
               alt="Técnico asegurando línea de vida"
@@ -374,9 +374,9 @@ function AboutSection() {
                 <div className="hotspot-dot">
                   <div className="hotspot-pulse" style={{ background: 'var(--orange)' }} />
                 </div>
-                <div className="hotspot-tooltip" style={{ background: 'rgba(11,29,53,0.95)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+                <div className="hotspot-tooltip" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
                   <div className="tooltip-title" style={{ color: 'var(--orange)' }}>{spot.title}</div>
-                  <div className="tooltip-desc" style={{ color: '#ddd' }}>{spot.desc}</div>
+                  <div className="tooltip-desc" style={{ color: '#555' }}>{spot.desc}</div>
                 </div>
               </div>
             ))}
@@ -386,13 +386,13 @@ function AboutSection() {
           <motion.div 
             variants={fadeUp}
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: 'rgba(255, 255, 255, 0.65)',
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 1)',
               borderRadius: '24px',
               padding: '48px',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+              boxShadow: '0 20px 40px rgba(0,0,0,0.08)'
             }}
           >
             <span style={{
@@ -405,7 +405,7 @@ function AboutSection() {
               Nuestra Empresa
             </span>
             
-            <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: '1.1', fontFamily: 'var(--font-head)', fontWeight: 900, marginBottom: '32px', color: '#fff', textTransform: 'uppercase' }}>
+            <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: '1.1', fontFamily: 'var(--font-head)', fontWeight: 900, marginBottom: '32px', color: 'var(--navy)', textTransform: 'uppercase' }}>
               Minimizamos los <span style={{ color: 'var(--orange)' }}>Riesgos</span> en cada ejecución.
             </h2>
             
@@ -413,16 +413,16 @@ function AboutSection() {
               position: 'relative', paddingLeft: '24px', marginBottom: '32px',
               borderLeft: '4px solid var(--orange)'
             }}>
-              <p style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0, textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+              <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
                 Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, creada en el año 2014.
               </p>
             </div>
             
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.7', marginBottom: '16px' }}>
+            <p style={{ color: '#555', fontSize: '16px', lineHeight: '1.7', marginBottom: '16px' }}>
               Por medio de nuestro personal altamente calificado y basados en el cumplimiento de un SG-SST estructurado con un énfasis en las actividades de alto Riesgo, garantizamos a nuestros clientes una correcta ejecución, minimizando los riesgos a la hora de ejecutar los contratos.
             </p>
             
-            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '16px', fontWeight: 600, fontStyle: 'italic', marginBottom: '40px' }}>
+            <p style={{ color: 'var(--navy)', fontSize: '16px', fontWeight: 700, fontStyle: 'italic', marginBottom: '40px' }}>
               Cuidando el bienestar de todos los involucrados.
             </p>
 
@@ -430,10 +430,10 @@ function AboutSection() {
               {["Personal Calificado", "SG-SST Estructurado", "Cumplimiento Normativo"].map((c) => (
                 <span key={c} style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)',
-                  padding: '10px 18px', borderRadius: '50px', fontSize: '13px', fontWeight: 600,
-                  color: 'rgba(255,255,255,0.9)',
-                  boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                  background: 'rgba(255,255,255,0.8)', border: '1px solid rgba(0,0,0,0.05)',
+                  padding: '10px 18px', borderRadius: '50px', fontSize: '13px', fontWeight: 700,
+                  color: 'var(--navy)',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
                 }}>
                   <i className="fa-solid fa-shield-halved" style={{ color: "var(--orange)" }} />
                   {c}
