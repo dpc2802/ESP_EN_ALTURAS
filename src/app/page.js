@@ -237,7 +237,7 @@ function HeroSection() {
             style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', maxWidth: '420px' }}
           >
             <a 
-              href="https://wa.me/3143588264" 
+              href="https://wa.me/573053439984" 
               target="_blank" 
               rel="noreferrer" 
               className="btn-premium-orange"
