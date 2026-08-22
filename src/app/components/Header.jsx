@@ -5,8 +5,11 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  const isPortfolio = pathname === "/portafolio";
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -95,7 +98,7 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      <header className={`header ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
+      <header className={`header ${scrolled || isPortfolio ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
         <div className="header-inner">
           <Link href="/" className="brand">
             <img 
