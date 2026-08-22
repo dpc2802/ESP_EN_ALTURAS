@@ -179,7 +179,7 @@ function HeroSection() {
           </motion.div>
 
           
-          <style>
+          <style dangerouslySetInnerHTML={{ __html: `
             .btn-premium-orange {
               position: relative;
               overflow: hidden;
@@ -228,7 +228,7 @@ function HeroSection() {
               0%, 100% { transform: translateY(0); }
               50% { transform: translateY(4px); }
             }
-          </style>
+          ` }} />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
