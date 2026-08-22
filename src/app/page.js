@@ -312,41 +312,37 @@ function AboutSection() {
   const [ref, inView] = useInView();
   const [activeHotspot, setActiveHotspot] = useState(null);
 
-  // Close hotspots when clicking outside
   useEffect(() => {
     const handleClick = (e) => {
-      if (!e.target.closest('.hotspot-container')) {
-        setActiveHotspot(null);
-      }
+      if (!e.target.closest('.hotspot-container')) setActiveHotspot(null);
     };
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
   const hotspots = [
-    {
-      id: 1,
-      top: "35%", left: "42%",
-      title: "Mosquetón Estructural",
-      desc: "Seguro automático triple — carga certificada 23kN."
-    },
-    {
-      id: 2,
-      top: "22%", left: "20%",
-      title: "Línea de Vida",
-      desc: "Cable de acero galvanizado 8mm. Instalación Res. 4272/2021."
-    },
-    {
-      id: 3,
-      top: "65%", left: "48%",
-      title: "Guante Dieléctrico / Anticorte",
-      desc: "EPP especializado con agarre de alta fricción para maniobras."
-    }
+    { id: 1, top: "35%", left: "42%", title: "Mosquetón Estructural", desc: "Seguro automático triple — carga certificada 23kN." },
+    { id: 2, top: "22%", left: "20%", title: "Línea de Vida", desc: "Cable de acero galvanizado 8mm. Instalación Res. 4272/2021." },
+    { id: 3, top: "65%", left: "48%", title: "Guante Dieléctrico", desc: "EPP especializado con agarre de alta fricción." }
   ];
 
   return (
-    <section className="about dot-bg" id="empresa">
-      <div className="wrap">
+    <section 
+      className="about" 
+      id="empresa"
+      style={{
+        position: 'relative',
+        padding: '120px 0',
+        background: 'url(/assets/portfolio/workers_roof_red_shirts.jpg) center/cover fixed no-repeat',
+        color: '#fff',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Premium Dark Overlay */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(11, 29, 53, 0.95) 0%, rgba(11, 29, 53, 0.85) 100%)', zIndex: 1 }} />
+      <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(243,107,34,0.15) 0%, rgba(0,0,0,0) 60%)', filter: 'blur(60px)', zIndex: 1 }} />
+
+      <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div
           className="about-grid"
           ref={ref}
@@ -354,14 +350,15 @@ function AboutSection() {
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
-          <motion.div className="about-img-wrap hotspot-container" variants={fadeIn}>
+          {/* Left Side: Image with Hotspots */}
+          <motion.div className="about-img-wrap hotspot-container" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}>
             <img
               src="/assets/lifeline_safety.jpg"
               alt="Técnico asegurando línea de vida"
               className="about-img"
+              style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
             />
             
-            {/* Interactive Hotspots */}
             {hotspots.map((spot) => (
               <div 
                 key={spot.id}
@@ -375,39 +372,76 @@ function AboutSection() {
                 }}
               >
                 <div className="hotspot-dot">
-                  <div className="hotspot-pulse" />
+                  <div className="hotspot-pulse" style={{ background: 'var(--orange)' }} />
                 </div>
-                <div className="hotspot-tooltip">
-                  <div className="tooltip-title">{spot.title}</div>
-                  <div className="tooltip-desc">{spot.desc}</div>
+                <div className="hotspot-tooltip" style={{ background: 'rgba(11,29,53,0.95)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+                  <div className="tooltip-title" style={{ color: 'var(--orange)' }}>{spot.title}</div>
+                  <div className="tooltip-desc" style={{ color: '#ddd' }}>{spot.desc}</div>
                 </div>
               </div>
             ))}
-
-            <div className="about-img-decor" />
           </motion.div>
           
-          <motion.div variants={fadeUp}>
-            <span className="about-tag">Nuestra Empresa</span>
-            <h2>Minimizamos los riesgos en cada ejecución.</h2>
-            <p className="about-lead">
-              Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, creada en el año 2014.
+          {/* Right Side: Premium Glassmorphism Text Card */}
+          <motion.div 
+            variants={fadeUp}
+            style={{
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '24px',
+              padding: '48px',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+            }}
+          >
+            <span style={{
+              display: 'inline-block', padding: '6px 16px', border: '1px solid var(--orange)', 
+              borderRadius: '20px', color: 'var(--orange)', fontSize: '11px', fontWeight: 800, 
+              letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '24px',
+              boxShadow: '0 0 15px rgba(243,107,34,0.3)',
+              background: 'rgba(243,107,34,0.05)'
+            }}>
+              Nuestra Empresa
+            </span>
+            
+            <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: '1.1', fontFamily: 'var(--font-head)', fontWeight: 900, marginBottom: '32px', color: '#fff', textTransform: 'uppercase' }}>
+              Minimizamos los <span style={{ color: 'var(--orange)' }}>Riesgos</span> en cada ejecución.
+            </h2>
+            
+            <div style={{
+              position: 'relative', paddingLeft: '24px', marginBottom: '32px',
+              borderLeft: '4px solid var(--orange)'
+            }}>
+              <p style={{ fontSize: '18px', fontWeight: 600, color: '#fff', margin: 0, textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, creada en el año 2014.
+              </p>
+            </div>
+            
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.7', marginBottom: '16px' }}>
+              Por medio de nuestro personal altamente calificado y basados en el cumplimiento de un SG-SST estructurado con un énfasis en las actividades de alto Riesgo, garantizamos a nuestros clientes una correcta ejecución, minimizando los riesgos a la hora de ejecutar los contratos.
             </p>
-            <p>
-              Por medio de nuestro personal altamente calificado y basados en el cumplimiento de un SG-SST estructurado con un énfasis en las actividades de alto Riesgo, garantizamos a nuestros clientes una correcta ejecución de los trabajos en Alturas, minimizando los Riesgos a la hora de ejecutar los contratos.
-            </p>
-            <p>
+            
+            <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '16px', fontWeight: 600, fontStyle: 'italic', marginBottom: '40px' }}>
               Cuidando el bienestar de todos los involucrados.
             </p>
-            <div className="about-certs">
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
               {["Personal Calificado", "SG-SST Estructurado", "Cumplimiento Normativo"].map((c) => (
-                <span className="cert-badge" key={c}>
+                <span key={c} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)',
+                  padding: '10px 18px', borderRadius: '50px', fontSize: '13px', fontWeight: 600,
+                  color: 'rgba(255,255,255,0.9)',
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+                }}>
                   <i className="fa-solid fa-shield-halved" style={{ color: "var(--orange)" }} />
                   {c}
                 </span>
               ))}
             </div>
           </motion.div>
+
         </motion.div>
       </div>
     </section>
