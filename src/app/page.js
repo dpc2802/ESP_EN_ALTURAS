@@ -76,48 +76,21 @@ function ProgressBar() {
 function HeroSection() {
   const { scrollY } = useScroll();
   const imgY = useTransform(scrollY, [0, 600], [0, 120]);
-  
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
-    "/assets/hero-2.jpg",
-    "/assets/hero-3.jpg",
-    "/assets/hero-movil.png",
-    "/assets/hero-4.jpg",
-    "/assets/hero-5.jpg"
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, [slides.length]);
 
   return (
     <section className="hero" id="inicio">
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={currentSlide}
-          className="hero-image" 
-          style={{ y: imgY, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
-        >
-          <Image 
-            src={slides[currentSlide]} 
-            alt="Trabajo seguro en alturas" 
-            fill 
-            priority={currentSlide === 0}
-            style={{ objectFit: "cover", objectPosition: "center center" }} 
-          />
-        </motion.div>
-      </AnimatePresence>
-      <div className="hero-mesh" style={{ background: 'rgba(0,0,0,0.5)' }} />
-      <div className="wrap" style={{ position: 'relative', zIndex: 10 }}>
+      <motion.div className="hero-image" style={{ y: imgY, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Image 
+          src="/assets/hero-movil.png" 
+          alt="Trabajo seguro en alturas" 
+          fill 
+          priority 
+          style={{ objectFit: "cover", objectPosition: "30% 20%" }} 
+        />
+      </motion.div>
+      <div className="hero-mesh" />
+      <div className="wrap">
         <div className="hero-content">
-
           <motion.div
             className="hero-badge"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -132,75 +105,38 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.7 }}
           >
-            EXPERIENCIA, CALIDAD Y SEGURIDAD
+            Soluciones Especializadas <br />
+            <span>en Alturas</span>
           </motion.h1>
 
           <motion.p
-            className="hero-desc"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85, duration: 0.7 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
           >
-            En trabajos de alto riesgo. Garantizamos a nuestros clientes una correcta ejecución minimizando los riesgos a la hora de ejecutar los contratos.
+            Mantenimiento, limpieza, pintura e instalación de estructuras con total seguridad y cumplimiento normativo.
           </motion.p>
 
           <motion.div
-            className="hero-actions"
+            className="hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
           >
-            <a href="#contacto" className="btn-primary">
-              Cotizar Proyecto <i className="fa-solid fa-arrow-right" />
+            <a href="https://wa.me/3143588264" target="_blank" rel="noreferrer" className="btn btn-primary">
+              <i className="fa-brands fa-whatsapp" style={{ marginRight: '8px' }}></i>
+              Cotizar Proyecto
             </a>
-            <a href="#servicios" className="btn-secondary">
-              Ver Portafolio
+            <a href="#servicios" className="btn btn-secondary">
+              Nuestros Servicios
             </a>
-          </motion.div>
-
-          <motion.div 
-            className="hero-stats"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-          >
-            <div className="hero-stat-chip">
-              <div className="chip-icon"><i className="fa-regular fa-calendar-check" /></div>
-              <div className="chip-data">
-                <span className="num"><CountUp target="2014" /></span>
-                <span className="lbl">Año de Creación</span>
-              </div>
-            </div>
-            
-            <div className="hero-stat-chip">
-              <div className="chip-icon"><i className="fa-solid fa-shield-halved" /></div>
-              <div className="chip-data">
-                <span className="num"><CountUp target="83" suffix="%" /></span>
-                <span className="lbl">Cumplimiento SG-SST</span>
-              </div>
-            </div>
-
-            <div className="hero-stat-chip">
-              <div className="chip-icon"><i className="fa-solid fa-file-signature" /></div>
-              <div className="chip-data">
-                <span className="num">100%</span>
-                <span className="lbl">Personal Certificado</span>
-              </div>
-            </div>
-            
-            <div className="hero-stat-chip">
-              <div className="chip-icon"><i className="fa-solid fa-layer-group" /></div>
-              <div className="chip-data">
-                <span className="num"><CountUp target="5" suffix="+" /></span>
-                <span className="lbl">Líneas de Servicio</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ── About Section ── */
 function AboutSection() {
