@@ -85,14 +85,16 @@ export default function Header() {
                 <a href="https://wa.me/573053439984" target="_blank" rel="noreferrer"><i className="fa-brands fa-whatsapp"/> 305 343 9984</a>
                 <a href="mailto:losespecialistasenalturas@gmail.com"><i className="fa-solid fa-envelope"/> Correo Técnico</a>
               </div>
-              <Link
-                href="/#contacto"
-                className="btn-primary"
-                style={{ width: "100%", justifyContent: "center" }}
-                onClick={() => setMenuOpen(false)}
-              >
-                Cotizar Proyecto
-              </Link>
+              <a 
+                  href="https://wa.me/573053439984?text=Hola,%20quisiera%20cotizar%20un%20proyecto" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn-primary"
+                  style={{ width: "100%", justifyContent: "center", textDecoration: 'none' }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Cotizar Proyecto
+                </a>
             </motion.div>
           </motion.div>
         )}
@@ -112,7 +114,7 @@ export default function Header() {
               <Link key={l.href} href={l.href}>{l.label}</Link>
             ))}
           </nav>
-          <Link href="/#contacto" className="btn-nav">Cotizar Proyecto</Link>
+          <a href="https://wa.me/573053439984?text=Hola,%20quisiera%20cotizar%20un%20proyecto" target="_blank" rel="noreferrer" className="btn-nav" style={{ textDecoration: 'none' }}>Cotizar Proyecto</a>
           <div
             className={`hamburger${menuOpen ? " open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
