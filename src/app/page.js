@@ -308,6 +308,39 @@ function HeroSection() {
 
 
 /* ── About Section ── */
+
+function CompaniesMarquee() {
+  return (
+    <div style={{ background: 'var(--navy)', padding: '24px 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}>
+      <div style={{ padding: '0 40px', color: 'rgba(255,255,255,0.4)', fontSize: '13px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', flexShrink: 0 }}>Empresas que confían en nosotros:</div>
+      <div style={{ display: 'inline-flex', gap: '60px', animation: 'marquee 25s linear infinite', color: '#fff', fontWeight: 700, fontSize: '18px', textTransform: 'uppercase' }}>
+        <span>Metro de Medellín</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        <span>Viva de La Ceja</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        <span>Colanta</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        <span>Jardín Botánico</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        {/* Duplicate for seamless loop */}
+        <span>Metro de Medellín</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        <span>Viva de La Ceja</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        <span>Colanta</span>
+        <span style={{ color: 'var(--orange)' }}>•</span>
+        <span>Jardín Botánico</span>
+      </div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}} />
+    </div>
+  );
+}
+
 function AboutSection() {
   const [ref, inView] = useInView();
   const [activeHotspot, setActiveHotspot] = useState(null);
@@ -327,6 +360,7 @@ function AboutSection() {
   ];
 
   return (
+    <CompaniesMarquee />
     <section 
       className="about" 
       id="empresa"
@@ -615,8 +649,8 @@ function BenefitsSection() {
     },
     {
       icon: "fa-shield-halved",
-      title: "Garantías",
-      desc: "Respaldo total en todos nuestros servicios, estructuras e instalaciones.",
+        title: "Garantía de 10 Años",
+        desc: "En sistemas de anclaje, con recertificación técnica anual garantizada.",
     },
     {
       icon: "fa-crosshairs",
@@ -953,6 +987,9 @@ function ContactSection() {
                 { icon: "fa-solid fa-user-tie", lbl: "Representante Legal", val: "Hans Gutiérrez Baena" },
                 { icon: "fa-solid fa-envelope", lbl: "Correo Electrónico", val: "losespecialistasenalturas@gmail.com", href: "mailto:losespecialistasenalturas@gmail.com" },
                 { icon: "fa-brands fa-whatsapp", lbl: "Celular / WhatsApp", val: "305 343 9984", href: "https://wa.me/573053439984" },
+                  { icon: "fa-solid fa-map-pin", lbl: "Sedes Físicas", val: "Medellín: Cll 53A #47-45 | Rionegro: Vereda La Playa" },
+                  { icon: "fa-solid fa-clock", lbl: "Horario de Atención", val: "7:30 AM - 4:00 PM" },
+                  { icon: "fa-solid fa-route", lbl: "Cobertura", val: "Medellín y Oriente Antioqueño" },
                 { icon: "fa-brands fa-facebook", lbl: "Facebook", val: "@losespecialistasenalturas", href: "https://www.facebook.com/losespecialistasenalturas/" },
                 { icon: "fa-brands fa-instagram", lbl: "Instagram", val: "@ESPECIALISTAS_EN_ALTURAS_SAS", href: "https://www.instagram.com/especialistas_en_alturas_sas?utm_source=qr&igsh=anU4cDV3OGZ0dnNz" },
               ].map((m, i) => (
