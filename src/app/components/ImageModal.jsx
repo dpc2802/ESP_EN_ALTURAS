@@ -1,5 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function ImageModal({ selectedItem, setSelectedItem, onNext, onPrev }) {
   const [touchStart, setTouchStart] = useState(null)
