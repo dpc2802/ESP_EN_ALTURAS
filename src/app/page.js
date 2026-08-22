@@ -360,8 +360,9 @@ function AboutSection() {
   ];
 
   return (
-    <CompaniesMarquee />
-    <section 
+    <>
+      <CompaniesMarquee />
+      <section 
       className="about" 
       id="empresa"
       style={{
@@ -479,6 +480,7 @@ function AboutSection() {
         </motion.div>
       </div>
     </section>
+    </>
   );
 }
 
