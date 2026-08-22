@@ -58,6 +58,7 @@ const portfolioData = [
 
 export default function PortfolioClient() {
   const [filter, setFilter] = useState("todas");
+  const [visibleCount, setVisibleCount] = useState(8);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const filteredData = filter === "todas" 
@@ -112,7 +113,7 @@ export default function PortfolioClient() {
         ].map((btn) => (
           <button
             key={btn.id}
-            onClick={() => setFilter(btn.id)}
+            onClick={() => { setFilter(btn.id); setVisibleCount(8); }}
             style={{
               position: 'relative',
               padding: '10px 24px',
@@ -147,12 +148,12 @@ export default function PortfolioClient() {
       </div>
 
       <div style={{ fontSize: '13px', color: '#666', marginBottom: '24px' }}>
-        Mostrando <strong>{filteredData.length}</strong> de <strong>{portfolioData.length}</strong>
+        Mostrando <strong>{Math.min(visibleCount, filteredData.length)}</strong> de <strong>{filteredData.length}</strong>
       </div>
 
       <motion.div layout className="masonry-grid">
         <AnimatePresence mode="popLayout">
-          {filteredData.map((item, index) => {
+          {filteredData.slice(0, visibleCount).map((item, index) => {
             const displayIndex = index + 1;
             const badgeNumber = displayIndex < 10 ? `0${displayIndex}` : displayIndex;
 
@@ -202,21 +203,26 @@ export default function PortfolioClient() {
       </motion.div>
 
       {/* Botón Cargar Más */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
-        <button style={{
-          padding: '16px 40px',
-          background: '#fff',
-          border: '1px solid rgba(0,0,0,0.1)',
-          borderRadius: '8px',
-          color: 'var(--navy)',
-          fontWeight: 800,
-          fontSize: '14px',
-          boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
-          cursor: 'pointer'
-        }}>
-          CARGAR MÁS FOTOS
-        </button>
-      </div>
+      {visibleCount < filteredData.length && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
+          <button 
+            onClick={() => setVisibleCount(prev => prev + 8)}
+            style={{
+              padding: '16px 40px',
+              background: '#fff',
+              border: '1px solid rgba(0,0,0,0.1)',
+              borderRadius: '8px',
+              color: 'var(--navy)',
+              fontWeight: 800,
+              fontSize: '14px',
+              boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
+              cursor: 'pointer'
+            }}
+          >
+            CARGAR MÁS FOTOS
+          </button>
+        </div>
+      )}
 
       <ImageModal selectedItem={selectedItem} setSelectedItem={setSelectedItem} onNext={handleNext} onPrev={handlePrev} />
     </>
