@@ -1,44 +1,119 @@
-export const metadata = {
-  title: 'Términos y Condiciones | Especialistas en Alturas SAS',
-  description: 'Términos y condiciones de prestación de servicios de Especialistas en Alturas SAS.',
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 export default function TerminosYCondiciones() {
   return (
-    <main style={{ padding: '150px 20px 80px', maxWidth: '800px', margin: '0 auto', color: 'var(--navy)', minHeight: '100vh' }}>
-      <h1 style={{ fontSize: '36px', fontWeight: 900, marginBottom: '30px', color: 'var(--navy)', fontFamily: 'var(--font-head)' }}>
-        TÉRMINOS Y CONDICIONES DE SERVICIO
-      </h1>
-      
-      <div style={{ lineHeight: '1.8', fontSize: '16px' }}>
-        <p style={{ marginBottom: '20px' }}>
-          Al contratar los servicios de <strong>Especialistas en Alturas S.A.S.</strong>, el cliente acepta los siguientes términos y condiciones de operación, diseñados para garantizar la seguridad de todas las partes bajo el marco de la Resolución 4272 de 2021.
-        </p>
-
-        <h3 style={{ fontSize: '20px', fontWeight: 700, margin: '30px 0 15px', color: 'var(--orange)' }}>1. Visitas Técnicas y Cotizaciones</h3>
-        <p style={{ marginBottom: '20px' }}>
-          Toda ejecución de obra está sujeta a una visita técnica previa obligatoria. Las cotizaciones emitidas tienen una validez de 15 días calendario. Nos reservamos el derecho de modificar la cotización si durante la ejecución se descubren riesgos no declarados por el cliente o vicios ocultos en la infraestructura.
-        </p>
-
-        <h3 style={{ fontSize: '20px', fontWeight: 700, margin: '30px 0 15px', color: 'var(--orange)' }}>2. Permisos y Responsabilidad del Cliente</h3>
-        <p style={{ marginBottom: '20px' }}>
-          El cliente debe garantizar el acceso a las instalaciones en las fechas acordadas y gestionar los permisos de administración necesarios. Así mismo, el cliente es responsable de aislar las zonas de peligro en tierra durante la ejecución de los trabajos en altura.
-        </p>
-
-        <h3 style={{ fontSize: '20px', fontWeight: 700, margin: '30px 0 15px', color: 'var(--orange)' }}>3. Cumplimiento de SG-SST</h3>
-        <p style={{ marginBottom: '20px' }}>
-          Especialistas en Alturas S.A.S. ejecutará todas sus labores bajo estrictos protocolos de Sistema de Gestión de Seguridad y Salud en el Trabajo. Nos reservamos el derecho a suspender cualquier obra si las condiciones climáticas o del entorno comprometen la integridad de nuestro personal certificado.
-        </p>
-
-        <h3 style={{ fontSize: '20px', fontWeight: 700, margin: '30px 0 15px', color: 'var(--orange)' }}>4. Garantías</h3>
-        <p style={{ marginBottom: '20px' }}>
-          Las garantías sobre los trabajos realizados (pintura, impermeabilización, instalación de líneas de vida) serán especificadas en el contrato individual de cada obra. Las líneas de vida requieren una inspección anual obligatoria para mantener su garantía de certificación.
-        </p>
+    <>
+      <Header />
+      <main style={{ background: '#f8f9fa', minHeight: '100vh', paddingBottom: '100px' }}>
         
-        <p style={{ marginTop: '40px', fontSize: '14px', color: '#666' }}>
-          <em>Última actualización: Agosto de 2026</em>
-        </p>
-      </div>
-    </main>
+        {/* Premium Hero Section */}
+        <section style={{ position: 'relative', height: '45vh', minHeight: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+            <Image src="/assets/hero_heights.jpg" alt="Términos y Condiciones Background" fill style={{ objectFit: 'cover' }} priority />
+          </div>
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(11,29,53,0.95), rgba(11,29,53,0.8))', zIndex: 1 }} />
+          
+          <motion.div 
+            initial="hidden" animate="show" variants={fadeUp}
+            style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 20px', width: '100%', maxWidth: '800px' }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.2)', padding: '8px 20px', borderRadius: '30px', color: 'var(--orange)', fontWeight: 700, fontSize: '14px', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px', border: '1px solid rgba(243,107,34,0.3)' }}>
+              <i className="fa-solid fa-file-contract"></i> Marco Legal y Operativo
+            </div>
+            <h1 style={{ color: '#fff', fontSize: 'clamp(32px, 5vw, 56px)', fontFamily: 'var(--font-head)', fontWeight: 900, lineHeight: 1.1, textTransform: 'uppercase', textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+              Términos y <span style={{ color: 'var(--orange)' }}>Condiciones</span>
+            </h1>
+          </motion.div>
+        </section>
+
+        {/* Content Section */}
+        <div style={{ position: 'relative', zIndex: 10, marginTop: '-60px', padding: '0 20px' }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
+            style={{ maxWidth: '900px', margin: '0 auto', background: '#fff', borderRadius: '24px', padding: 'clamp(30px, 5vw, 60px)', boxShadow: '0 20px 40px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.05)' }}
+          >
+            <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#444', marginBottom: '40px', fontWeight: 500 }}>
+              Al contratar los servicios de <strong style={{ color: 'var(--navy)' }}>Especialistas en Alturas S.A.S.</strong>, el cliente acepta los siguientes parámetros de operación. Estos términos están diseñados estrictamente para proteger la vida humana y garantizar la máxima calidad bajo la Resolución 4272 de 2021.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+              
+              {/* Item 1 */}
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ flexShrink: 0, width: '50px', height: '50px', background: 'rgba(243,107,34,0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', fontSize: '24px' }}>
+                  <i className="fa-solid fa-clipboard-check"></i>
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--navy)', marginBottom: '15px' }}>1. Visitas Técnicas Obligatorias</h3>
+                  <p style={{ color: '#555', lineHeight: '1.7' }}>
+                    Por la naturaleza de alto riesgo de nuestros servicios, ninguna cotización es definitiva sin una inspección presencial. Las cotizaciones emitidas tienen una validez de <strong>15 días calendario</strong>. Nos reservamos el derecho de modificar los presupuestos si durante la ejecución se descubren riesgos no declarados o vicios ocultos en la infraestructura del cliente.
+                  </p>
+                </div>
+              </div>
+
+              <hr style={{ border: 'none', borderTop: '1px solid #eee' }} />
+
+              {/* Item 2 */}
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ flexShrink: 0, width: '50px', height: '50px', background: 'rgba(243,107,34,0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', fontSize: '24px' }}>
+                  <i className="fa-solid fa-building-shield"></i>
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--navy)', marginBottom: '15px' }}>2. Responsabilidad de Accesos y Permisos</h3>
+                  <p style={{ color: '#555', lineHeight: '1.7' }}>
+                    El cliente asume la responsabilidad total de garantizar el libre acceso a las zonas de trabajo en las fechas acordadas y gestionar los permisos de administración correspondientes (conjuntos cerrados, centros comerciales, etc.). Asimismo, debe proveer un entorno aislado en tierra para evitar accidentes con transeúntes.
+                  </p>
+                </div>
+              </div>
+
+              <hr style={{ border: 'none', borderTop: '1px solid #eee' }} />
+
+              {/* Item 3 */}
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ flexShrink: 0, width: '50px', height: '50px', background: 'rgba(243,107,34,0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', fontSize: '24px' }}>
+                  <i className="fa-solid fa-helmet-safety"></i>
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--navy)', marginBottom: '15px' }}>3. Autoridad Operativa y SG-SST</h3>
+                  <p style={{ color: '#555', lineHeight: '1.7' }}>
+                    Nuestro Coordinador de Alturas tiene la autoridad legal y absoluta para <strong>suspender inmediatamente</strong> cualquier maniobra si las condiciones climáticas (lluvia, tormenta eléctrica, vientos fuertes) o del entorno comprometen la vida del personal operativo. La seguridad no es negociable.
+                  </p>
+                </div>
+              </div>
+
+              <hr style={{ border: 'none', borderTop: '1px solid #eee' }} />
+
+              {/* Item 4 */}
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ flexShrink: 0, width: '50px', height: '50px', background: 'rgba(243,107,34,0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)', fontSize: '24px' }}>
+                  <i className="fa-solid fa-award"></i>
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--navy)', marginBottom: '15px' }}>4. Garantías Estructurales</h3>
+                  <p style={{ color: '#555', lineHeight: '1.7' }}>
+                    Los tiempos de garantía sobre instalaciones (líneas de vida, puntos de anclaje) e impermeabilizaciones serán detallados explícitamente en el acta de entrega. Para que las certificaciones de anclajes mantengan su validez, el cliente está obligado a programar una inspección de recertificación anual obligatoria.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div style={{ marginTop: '50px', textAlign: 'center', color: '#999', fontSize: '14px' }}>
+              <em>Última actualización: Agosto de 2026</em>
+            </div>
+          </motion.div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
