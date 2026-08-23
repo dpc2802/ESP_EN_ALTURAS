@@ -319,8 +319,17 @@ function TrustedBySection() {
     { src: "/assets/clients/exito.png", alt: "Grupo Éxito" },
     { src: "/assets/clients/capital.png", alt: "Constructora Capital" },
     { src: "/assets/clients/corona.png", alt: "Corona" },
-    { src: "/assets/clients/sanpietro.png", alt: "Edificio San Pietro" }
+    { src: "/assets/clients/sanpietro.png", alt: "Edificio San Pietro" },
+    { src: "/assets/clients/conhime.png", alt: "ConHime" },
+    { src: "/assets/clients/doblamos.png", alt: "Doblamos S.A." },
+    { src: "/assets/clients/agcubiertas.png", alt: "AG Cubiertas" },
+    { src: "/assets/clients/habitaforte.png", alt: "Habita Forte" },
+    { src: "/assets/clients/arquitecturaconcreto.png", alt: "Arquitectura y Concreto" }
   ];
+
+  const angle = 360 / logos.length;
+  // Calculate Z translation based on the number of logos to form a perfect circle
+  const tz = Math.round((200 / 2) / Math.tan(Math.PI / logos.length)) + 10;
 
   return (
     <section style={{ 
@@ -336,8 +345,8 @@ function TrustedBySection() {
           Confían en nosotros
         </p>
 
-        {/* 3D Roulette Container - 9 faces */}
-        <div style={{ perspective: '800px', width: '200px', height: '80px', position: 'relative' }}>
+        {/* 3D Roulette Container */}
+        <div style={{ perspective: '1200px', width: '200px', height: '80px', position: 'relative' }}>
           <div className="roulette-3d" style={{ width: '100%', height: '100%', position: 'absolute', transformStyle: 'preserve-3d' }}>
             {logos.map((logo, i) => (
               <div key={i} className="roulette-item" style={{
@@ -355,8 +364,7 @@ function TrustedBySection() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '15px',
-                // 360 / 9 = 40 degrees. Radius = 260px
-                transform: `rotateY(${i * 40}deg) translateZ(260px)`,
+                transform: `rotateY(${i * angle}deg) translateZ(${tz}px)`,
                 backfaceVisibility: 'hidden'
               }}>
                 <div style={{ position: 'relative', width: '100%', height: '100%', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.1))' }}>
@@ -369,7 +377,7 @@ function TrustedBySection() {
       </div>
       <style dangerouslySetInnerHTML={{ __html: `
         .roulette-3d {
-          animation: spinRoulette 30s infinite linear;
+          animation: spinRoulette 45s infinite linear;
         }
         @keyframes spinRoulette {
           from { transform: rotateY(0deg); }
