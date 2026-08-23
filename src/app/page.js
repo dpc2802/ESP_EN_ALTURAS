@@ -132,7 +132,7 @@ function HeroSection() {
             }}
           >
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--orange)', marginRight: '10px', boxShadow: '0 0 10px var(--orange)' }}></div>
-            12 AÑOS DE EXPERIENCIA
+            {new Date().getFullYear() - 2014} AÑOS DE EXPERIENCIA
           </motion.div>
 
           <motion.h1
@@ -483,7 +483,7 @@ function AboutSection() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
                 <i className="fa-solid fa-award" style={{ fontSize: '20px', color: 'var(--orange)' }}></i>
                 <p style={{ fontSize: '15px', fontWeight: 800, color: 'var(--navy)', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                  12 Años de Experiencia
+                  {new Date().getFullYear() - 2014} Años de Experiencia
                 </p>
               </div>
             </div>
@@ -1154,6 +1154,7 @@ function SponsorsSection() {
 
 export default function Page() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const yearsOfExperience = new Date().getFullYear() - 2014;
 
   return (
     <>
