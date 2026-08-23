@@ -519,25 +519,25 @@ function ServicesSection({ onItemClick }) {
       num: "01",
       icon: "fa-layer-group",
       title: "ESTRUCTURAS METÁLICAS",
-      desc: "Diseños ajustados a la medida; creamos estructuras certificadas en cumplimiento de la Resolución 4272/2021.",
+      desc: "Diseños ajustados a la medida; creamos y certificamos estructuras en cumplimiento de la Resolución 4272/2021.",
       image: "/assets/real_welding.jpg",
-      bullets: ["Campos de entrenamiento", "Escaleras", "Barandas", "Plataformas", "Monster Heights"]
+      bullets: ["Campos de entrenamiento", "Escaleras y Barandas", "Plataformas", "Monster Heights"]
     },
     {
       num: "02",
       icon: "fa-building",
       title: "TRABAJOS EN FACHADAS",
-      desc: "Soluciones integrales de mantenimiento e impermeabilización para exteriores y edificios de gran altura.",
+      desc: "Ejecución de trabajos en alturas que comprometan el exterior de edificios, bodegas y conjuntos residenciales con personal certificado.",
       image: "/assets/real_facade_washing2.jpg",
-      bullets: ["Pintura", "Mantenimiento", "Reparaciones", "Lavado", "Adecuaciones", "Impermeabilización", "Sellos"]
+      bullets: ["Pintura y Lavado", "Mantenimiento y Adecuaciones", "Reparaciones", "Impermeabilización y Sellos"]
     },
     {
       num: "03",
       icon: "fa-link",
-      title: "LÍNEAS DE VIDA",
-      desc: "Sistemas anticaídas certificados para garantizar la seguridad de su personal en cualquier tipo de cubierta o estructura.",
+      title: "LÍNEAS DE VIDA Y ANCLAJES",
+      desc: "Instalación y certificación de sistemas de protección, ofreciendo cobertura total al riesgo de caída en diversas actividades laborales.",
       image: "/assets/real_lifeline_testing.jpg",
-      bullets: ["Líneas de vida horizontales", "Líneas de vida verticales", "Puntos de anclaje (5.000 lb)"]
+      bullets: ["Líneas de vida horizontales y verticales", "Puntos de anclaje certificados (5.000 lb)"]
     },
     {
       num: "04",
@@ -545,24 +545,32 @@ function ServicesSection({ onItemClick }) {
       title: "TRABAJOS EN ALTURAS",
       desc: "Ejecución experta en instalación y mantenimiento de estructuras suspendidas o de difícil acceso.",
       image: "/assets/real_tower_structure.jpg",
-      bullets: ["Mantenimiento", "Reparaciones", "Instalaciones", "Limpieza técnica"]
+      bullets: ["Mantenimiento", "Reparaciones e Instalaciones", "Limpieza técnica"]
     },
     {
       num: "05",
       icon: "fa-trowel-bricks",
       title: "TRABAJOS EN CUBIERTAS",
-      desc: "Intervenciones seguras sobre tejados y cubiertas industriales, eliminando riesgos de caída o daño estructural.",
+      desc: "Operamos todo tipo de techos y cubiertas industriales que requieran intervención especializada y segura.",
       image: "/assets/real_roof_lifeline.jpg",
-      bullets: ["Mantenimiento general", "Filtraciones", "Impermeabilizaciones", "Instalación de plataformas", "Montaje de cubierta"]
+      bullets: ["Mantenimiento de canoas", "Filtraciones de agua", "Impermeabilizaciones y terminaciones", "Montaje de cubierta", "Instalación de plataformas"]
     },
     {
       num: "06",
+      icon: "fa-paint-roller",
+      title: "OBRA BLANCA Y ACABADOS",
+      desc: "Acabados profesionales en bodegas, casas y apartamentos, incluyendo adecuaciones y mantenimiento general.",
+      image: "/assets/portfolio/facade_maintenance.jpg",
+      bullets: ["Pintura y Resanes", "Lavado e hidrófugo", "Fugas de agua", "Reparaciones eléctricas básicas", "Reparaciones en general"]
+    },
+    {
+      num: "07",
       icon: "fa-chalkboard-user",
       title: "FORMACIÓN EN ALTURAS",
-      desc: "Espacios de sensibilización y capacitación para el personal, enfocados en riesgos inminentes e identificación de peligros en la empresa.",
+      desc: "Espacios de sensibilización para el personal con respecto a los riesgos inminentes previamente identificados en la empresa.",
       image: "/assets/real_rope_access.jpg",
       bullets: ["Cursos: Avanzado, Reentrenamiento, Coordinador, Operativo", "Planes de formación", "Ciclos formativos", "Sensibilización de riesgos"]
-    },
+    }
   ];
 
   return (
