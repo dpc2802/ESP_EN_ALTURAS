@@ -434,9 +434,9 @@ function AboutSection() {
           animate={inView ? "show" : "hidden"}
         >
           {/* Left Side: Image with Hotspots */}
-          <motion.div className="about-img-wrap" variants={fadeIn} style={{ position: 'relative', minHeight: '450px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
-              <Image src="/assets/nuestra-empresa.jpg" alt="Especialistas en Alturas" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
-            </motion.div>
+          <motion.div className="about-img-wrap" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
+            <Image src="/assets/nuestra-empresa.jpg" alt="Especialistas en Alturas" width={800} height={1200} sizes="(max-width: 768px) 100vw, 50vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </motion.div>
           
           {/* Right Side: Premium Glassmorphism Text Card */}
           <motion.div 
