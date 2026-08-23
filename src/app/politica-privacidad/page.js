@@ -18,7 +18,7 @@ export default function PoliticaPrivacidad() {
         {/* Premium Hero Section */}
         <section style={{ position: 'relative', height: '40vh', minHeight: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            <Image src="/assets/portfolio/facade_maintenance.jpg" alt="Política de Privacidad Background" fill style={{ objectFit: 'cover' }} priority />
+            <Image src="/assets/facade_maintenance.jpg" alt="Política de Privacidad Background" fill style={{ objectFit: 'cover' }} priority />
           </div>
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(11,29,53,0.9), var(--navy))', zIndex: 1 }} />
           
