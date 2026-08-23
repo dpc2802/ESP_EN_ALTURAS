@@ -426,7 +426,7 @@ function AboutSection() {
           {/* Left Side: Image with Hotspots */}
           <motion.div className="about-img-wrap hotspot-container" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
             <img
-              src="/assets/lifeline_safety.jpg"
+              src="/assets/nuestra-empresa.jpg"
               alt="Técnico asegurando línea de vida"
               className="about-img"
               style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
