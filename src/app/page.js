@@ -472,11 +472,20 @@ function AboutSection() {
             
             <div style={{
               position: 'relative', paddingLeft: '24px', marginBottom: '32px',
-              borderLeft: '4px solid var(--orange)'
+              borderLeft: '4px solid var(--orange)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px'
             }}>
               <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
-                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, creada en el año 2014.
+                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, <span style={{ color: 'var(--orange)' }}>creada en el año 2014.</span>
               </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
+                <i className="fa-solid fa-award" style={{ fontSize: '20px', color: 'var(--orange)' }}></i>
+                <p style={{ fontSize: '15px', fontWeight: 800, color: 'var(--navy)', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  12 Años de Experiencia
+                </p>
+              </div>
             </div>
             
             <p style={{ color: '#555', fontSize: '16px', lineHeight: '1.7', marginBottom: '16px' }}>
