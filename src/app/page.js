@@ -324,7 +324,8 @@ function TrustedBySection() {
     { src: "/assets/clients/doblamos.png", alt: "Doblamos S.A." },
     { src: "/assets/clients/agcubiertas.png", alt: "AG Cubiertas" },
     { src: "/assets/clients/habitaforte.png", alt: "Habita Forte" },
-    { src: "/assets/clients/arquitecturaconcreto.png", alt: "Arquitectura y Concreto" }
+    { src: "/assets/clients/arquitecturaconcreto.png", alt: "Arquitectura y Concreto" },
+    { src: "/assets/clients/santamaria.png", alt: "Arrendamientos Santa Maria LTDA" }
   ];
 
   const angle = 360 / logos.length;
