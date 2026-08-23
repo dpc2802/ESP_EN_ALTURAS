@@ -1043,11 +1043,12 @@ function ContactSection() {
 function SponsorsSection() {
   const [ref, inView] = useInView(0.1);
   const sponsors = [
-    { src: "/assets/clients/escudo.png", alt: "Gobierno de Colombia", width: 100 },
-    { src: "/assets/clients/fondo-emprender.png", alt: "Fondo Emprender", width: 180 },
-    { src: "/assets/clients/sena.png", alt: "SENA", width: 100 },
-    { src: "/assets/clients/alcaldia.png", alt: "Alcaldía de Rionegro", width: 200 },
-    { src: "/assets/clients/rionegro.png", alt: "Rionegro Tarea de Todos", width: 160 }
+    { src: "/assets/clients/udea.png", alt: "Universidad de Antioquia", width: 140 },
+    { src: "/assets/clients/escudo.png", alt: "Gobierno de Colombia", width: 90 },
+    { src: "/assets/clients/fondo-emprender.png", alt: "Fondo Emprender", width: 170 },
+    { src: "/assets/clients/sena.png", alt: "SENA", width: 90 },
+    { src: "/assets/clients/alcaldia.png", alt: "Alcaldía de Rionegro", width: 180 },
+    { src: "/assets/clients/rionegro.png", alt: "Rionegro Tarea de Todos", width: 140 }
   ];
 
   return (
@@ -1078,8 +1079,8 @@ function SponsorsSection() {
             flexWrap: 'wrap', 
             justifyContent: 'center', 
             alignItems: 'center', 
-            gap: 'clamp(30px, 5vw, 60px)',
-            maxWidth: '1000px',
+            gap: 'clamp(30px, 4vw, 50px)',
+            maxWidth: '1200px',
             margin: '0 auto'
           }}>
             {sponsors.map((logo, i) => (
@@ -1091,21 +1092,19 @@ function SponsorsSection() {
                 style={{ 
                   position: 'relative', 
                   width: `${logo.width}px`, 
-                  height: '80px',
-                  // Navy blue filter: brightness(0) makes it black. invert(1) makes it white.
-                  // Since we want navy (palette), we use a CSS filter trick or just use pure grayscale with a mix-blend-mode.
-                  // The best way for 'palette' without complex filters on a white background is pure grayscale + opacity.
-                  // A very elegant look is grayscale, and on hover it turns orange or full opacity.
-                  filter: 'grayscale(100%) contrast(200%) opacity(0.5)',
+                  height: '75px',
+                  filter: 'grayscale(100%) opacity(0.5)',
                   transition: 'all 0.4s ease',
                   cursor: 'default'
                 }}
                 onMouseEnter={(e) => { 
-                  // When hovering, turn it into our palette's Orange by using CSS filters on a black base
-                  e.currentTarget.style.filter = 'grayscale(100%) sepia(100%) hue-rotate(345deg) saturate(500%) brightness(100%) opacity(1)';
+                  // Muestra el color original del logo
+                  e.currentTarget.style.filter = 'grayscale(0%) opacity(1)';
+                  e.currentTarget.style.transform = 'scale(1.05)';
                 }}
                 onMouseLeave={(e) => { 
-                  e.currentTarget.style.filter = 'grayscale(100%) contrast(200%) opacity(0.5)';
+                  e.currentTarget.style.filter = 'grayscale(100%) opacity(0.5)';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
                 <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} unoptimized />
