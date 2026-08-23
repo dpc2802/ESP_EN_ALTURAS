@@ -45,6 +45,8 @@ export const metadata = {
   },
 };
 
+import CookieBanner from "./components/CookieBanner";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
@@ -59,7 +61,10 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
       </head>
-      <body className={`${oswald.variable} ${inter.variable}`}>{children}</body>
+      <body className={`${oswald.variable} ${inter.variable}`}>
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   );
 }
