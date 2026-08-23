@@ -560,7 +560,7 @@ function ServicesSection({ onItemClick }) {
       icon: "fa-paint-roller",
       title: "OBRA BLANCA Y ACABADOS",
       desc: "Acabados profesionales en bodegas, casas y apartamentos, incluyendo adecuaciones y mantenimiento general.",
-      image: "/assets/portfolio/facade_maintenance.jpg",
+      image: "/assets/real_obra_blanca.png",
       bullets: ["Pintura y Resanes", "Lavado e hidrófugo", "Fugas de agua", "Reparaciones eléctricas básicas", "Reparaciones en general"]
     },
     {
