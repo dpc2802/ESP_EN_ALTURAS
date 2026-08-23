@@ -519,25 +519,25 @@ function ServicesSection({ onItemClick }) {
       num: "01",
       icon: "fa-layer-group",
       title: "ESTRUCTURAS METÁLICAS",
-      desc: "Diseños ajustados a la medida; creamos y certificamos estructuras en cumplimiento de la Resolución 4272/2021.",
+      desc: "Diseños ajustados a la medida; creamos estructuras certificadas en cumplimiento de la Resolución 4272/2021.",
       image: "/assets/real_welding.jpg",
-      bullets: ["Campos de entrenamiento", "Escaleras y Barandas", "Plataformas", "Monster Heights"]
+      bullets: ["Campos de entrenamiento", "Escaleras", "Barandas", "Plataformas", "Monster Heights"]
     },
     {
       num: "02",
       icon: "fa-building",
       title: "TRABAJOS EN FACHADAS",
-      desc: "Ejecución de trabajos en alturas que comprometan el exterior de edificios, bodegas y conjuntos residenciales con personal certificado.",
+      desc: "Soluciones integrales de mantenimiento e impermeabilización para exteriores y edificios de gran altura.",
       image: "/assets/real_facade_washing2.jpg",
-      bullets: ["Pintura y Lavado", "Mantenimiento y Adecuaciones", "Reparaciones", "Impermeabilización y Sellos"]
+      bullets: ["Pintura", "Mantenimiento", "Reparaciones", "Lavado", "Adecuaciones", "Impermeabilización", "Sellos"]
     },
     {
       num: "03",
       icon: "fa-link",
-      title: "LÍNEAS DE VIDA Y ANCLAJES",
-      desc: "Instalación y certificación de sistemas de protección, ofreciendo cobertura total al riesgo de caída en diversas actividades laborales.",
+      title: "LÍNEAS DE VIDA",
+      desc: "Sistemas anticaídas certificados para garantizar la seguridad de su personal en cualquier tipo de cubierta o estructura.",
       image: "/assets/real_lifeline_testing.jpg",
-      bullets: ["Líneas de vida horizontales y verticales", "Puntos de anclaje certificados (5.000 lb)"]
+      bullets: ["Líneas de vida horizontales", "Líneas de vida verticales", "Puntos de anclaje (5.000 lb)"]
     },
     {
       num: "04",
@@ -545,31 +545,158 @@ function ServicesSection({ onItemClick }) {
       title: "TRABAJOS EN ALTURAS",
       desc: "Ejecución experta en instalación y mantenimiento de estructuras suspendidas o de difícil acceso.",
       image: "/assets/real_tower_structure.jpg",
-      bullets: ["Mantenimiento", "Reparaciones e Instalaciones", "Limpieza técnica"]
+      bullets: ["Mantenimiento", "Reparaciones", "Instalaciones", "Limpieza técnica"]
     },
     {
       num: "05",
       icon: "fa-trowel-bricks",
       title: "TRABAJOS EN CUBIERTAS",
-      desc: "Operamos todo tipo de techos y cubiertas industriales que requieran intervención especializada y segura.",
+      desc: "Intervenciones seguras sobre tejados y cubiertas industriales, eliminando riesgos de caída o daño estructural.",
       image: "/assets/real_roof_lifeline.jpg",
-      bullets: ["Mantenimiento de canoas", "Filtraciones de agua", "Impermeabilizaciones y terminaciones", "Montaje de cubierta", "Instalación de plataformas"]
+      bullets: ["Mantenimiento general", "Filtraciones", "Impermeabilizaciones", "Instalación de plataformas", "Montaje de cubierta"]
     },
     {
       num: "06",
-      icon: "fa-paint-roller",
-      title: "OBRA BLANCA Y ACABADOS",
-      desc: "Acabados profesionales en bodegas, casas y apartamentos, incluyendo adecuaciones y mantenimiento general.",
-      image: "/assets/portfolio/facade_maintenance.jpg",
-      bullets: ["Pintura y Resanes", "Lavado e hidrófugo", "Fugas de agua", "Reparaciones eléctricas básicas", "Reparaciones en general"]
-    },
-    {
-      num: "07",
       icon: "fa-chalkboard-user",
       title: "FORMACIÓN EN ALTURAS",
-      desc: "Espacios de sensibilización para el personal con respecto a los riesgos inminentes previamente identificados en la empresa.",
+      desc: "Espacios de sensibilización y capacitación para el personal, enfocados en riesgos inminentes e identificación de peligros en la empresa.",
       image: "/assets/real_rope_access.jpg",
       bullets: ["Cursos: Avanzado, Reentrenamiento, Coordinador, Operativo", "Planes de formación", "Ciclos formativos", "Sensibilización de riesgos"]
+    },
+  ];
+
+  return (
+    <section className="services" id="servicios">
+      <div className="services-overlay"></div>
+      <div className="wrap">
+        <motion.div
+          className="section-head"
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-eyebrow">Portafolio</span>
+          <h2 className="section-title">Servicios Especializados en Altura</h2>
+        </motion.div>
+
+        <motion.div
+          className="services-grid"
+          variants={stagger(0.1)}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+        >
+          {services.map((svc) => (
+            <motion.div 
+              className="svc-card-img" 
+              key={svc.num} 
+              variants={fadeUp}
+              onClick={() => {
+                if(svc.link && svc.link.startsWith("/#")) {
+                  document.querySelector(svc.link.replace("/#", "#"))?.scrollIntoView({ behavior: "smooth" });
+                } else if (svc.link) {
+                  router.push(svc.link);
+                }
+              }}
+              style={{ cursor: "pointer" }}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  if(svc.link && svc.link.startsWith("/#")) {
+                    document.querySelector(svc.link.replace("/#", "#"))?.scrollIntoView({ behavior: "smooth" });
+                  } else if (svc.link) {
+                    router.push(svc.link);
+                  }
+                }
+              }}
+            >
+              <Image src={svc.image} alt={svc.title} className="svc-img-bg" fill sizes="(max-width: 768px) 100vw, 50vw" />
+              <div className="svc-img-overlay" />
+              
+              <div className="svc-content">
+                <div className="svc-top">
+                  <span className="svc-num">{svc.num}</span>
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); onItemClick({ id: svc.num, src: svc.image, alt: svc.title }); }}
+                      title="Ver imagen"
+                      style={{
+                        width: '48px', height: '48px', borderRadius: '50%',
+                        background: 'rgba(0,0,0,0.5)', color: '#fff', border: 'none',
+                        cursor: 'pointer', transition: 'all 0.3s', backdropFilter: 'blur(4px)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px',
+                        position: 'relative', zIndex: 10
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'var(--orange)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.5)'}
+                    >
+                      <i className="fa-solid fa-expand" />
+                    </button>
+                    <div className="svc-icon">
+                      <i className={`fa-solid ${svc.icon}`} />
+                    </div>
+                  </div>
+                </div>
+                <div className="svc-bottom">
+                  <h3>{svc.title}</h3>
+                  <p>{svc.desc}</p>
+                  {svc.bullets && (
+                    <ul className="svc-bullets" style={{ marginBottom: "20px" }}>
+                      {svc.bullets.map((b, idx) => (
+                        <li key={idx}>
+                          <i className="fa-solid fa-check" /> {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {svc.link && (
+                    <div className="btn-secondary" style={{ padding: "10px 16px", fontSize: "14px", width: "fit-content", display: "inline-flex", pointerEvents: "none" }}>
+                      Ver detalles <i className="fa-solid fa-arrow-right" style={{ marginLeft: "8px" }}/>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Benefits Section ── */
+function BenefitsSection() {
+  const [ref, inView] = useInView(0.1);
+  const steps = [
+    {
+      icon: "fa-certificate",
+      title: "Certificación de trabajos y equipos",
+      desc: "Cumplimiento estricto normativo y calidad asegurada en cada maniobra.",
+    },
+    {
+      icon: "fa-user-tie",
+      title: "Asesoría permanente",
+      desc: "Acompañamiento técnico con personal altamente calificado para su proyecto.",
+    },
+    {
+      icon: "fa-clipboard-check",
+      title: "Seguimiento a los sistemas",
+      desc: "Monitoreo a los sistemas de protección contra caídas instalados.",
+    },
+    {
+      icon: "fa-shield-halved",
+        title: "Garantía de 10 Años",
+        desc: "En sistemas de anclaje, con recertificación técnica anual garantizada.",
+    },
+    {
+      icon: "fa-crosshairs",
+      title: "Portafolio enfocado",
+      desc: "Servicios orientados netamente y con exclusividad a los trabajos en alturas.",
+    },
+    {
+      icon: "fa-award",
+      title: "Experiencia",
+      desc: "Trayectoria comprobada y garantía de excelencia en la industria.",
     }
   ];
 
