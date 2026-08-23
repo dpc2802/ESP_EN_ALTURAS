@@ -369,7 +369,7 @@ function TrustedBySection() {
                 backfaceVisibility: 'hidden'
               }}>
                 <div style={{ position: 'relative', width: '100%', height: '100%', filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.1))' }}>
-                  <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} unoptimized />
+                  <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 150px, 250px" />
                 </div>
               </div>
             ))}
@@ -434,13 +434,8 @@ function AboutSection() {
           animate={inView ? "show" : "hidden"}
         >
           {/* Left Side: Image with Hotspots */}
-          <motion.div className="about-img-wrap" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
-              <img
-                src="/assets/nuestra-empresa.jpg"
-                alt="Especialistas en Alturas"
-                className="about-img"
-                style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+          <motion.div className="about-img-wrap" variants={fadeIn} style={{ position: 'relative', minHeight: '450px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
+              <Image src="/assets/nuestra-empresa.jpg" alt="Especialistas en Alturas" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
             </motion.div>
           
           {/* Right Side: Premium Glassmorphism Text Card */}
@@ -1142,7 +1137,7 @@ function SponsorsSection() {
                   e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
-                <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} unoptimized />
+                <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain' }} sizes="(max-width: 768px) 150px, 250px" />
               </motion.div>
             ))}
           </div>
