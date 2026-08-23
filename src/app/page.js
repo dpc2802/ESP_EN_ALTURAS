@@ -132,7 +132,7 @@ function HeroSection() {
             }}
           >
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--orange)', marginRight: '10px', boxShadow: '0 0 10px var(--orange)' }}></div>
-            10 AÑOS DE EXPERIENCIA
+            12 AÑOS DE EXPERIENCIA
           </motion.div>
 
           <motion.h1
