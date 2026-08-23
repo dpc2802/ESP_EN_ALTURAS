@@ -62,9 +62,9 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Especialistas en Alturas S.A.S. Todos los derechos reservados.</p>
           <div className="footer-bottom-links">
-            <a href="#" onClick={(e) => e.preventDefault()}>Política de Privacidad</a>
+            <Link href="/politica-privacidad">Política de Privacidad</Link>
             <span className="separator">|</span>
-            <a href="#" onClick={(e) => e.preventDefault()}>Términos y Condiciones</a>
+            <Link href="/terminos-y-condiciones">Términos y Condiciones</Link>
           </div>
         </div>
       </div>
