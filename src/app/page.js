@@ -83,17 +83,21 @@ function HeroSection() {
       {/* Fondo Parallax */}
       <motion.div className="hero-image" style={{ y: imgY, position: 'absolute', top: '-10%', left: 0, right: 0, bottom: '-10%', zIndex: 0 }}>
         <Image 
-          src="/assets/hero-final.png" 
+          src="/assets/hero-buildings.jpg" 
           alt="Trabajo seguro en alturas" 
           fill 
           priority 
           quality={100}
-          style={{ objectFit: "cover", objectPosition: "center 20%" }} 
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center 68%" }} 
         />
       </motion.div>
 
-      {/* Overlays / Gradientes Mejorados */}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(11,29,53,0.95) 0%, rgba(11,29,53,0.3) 50%, rgba(0,0,0,0) 100%)', zIndex: 1 }} />
+      {/* Overlay principal — texto legible en móvil */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(11,29,53,0.92) 0%, rgba(11,29,53,0.55) 55%, rgba(11,29,53,0.2) 100%)', zIndex: 1 }} />
+      {/* Overlay superior — oscurece el logo de la foto */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '55%', background: 'linear-gradient(to bottom, rgba(11,29,53,0.75) 0%, rgba(11,29,53,0) 100%)', zIndex: 1 }} />
+      {/* Overlay inferior — transición suave al siguiente bloque */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40vh', background: 'linear-gradient(to top, rgba(11,29,53,1) 0%, rgba(11,29,53,0) 100%)', zIndex: 1 }} />
 
       {/* Orbe de luz (Glow) detrás del texto */}
@@ -151,7 +155,7 @@ function HeroSection() {
             }}
           >
             EXPERIENCIA,<br />
-            <span style={{ color: 'var(--orange)' }}>CALIDAD Y</span><br />
+            <span style={{ color: '#fff' }}>CALIDAD Y</span><br />
             SEGURIDAD
           </motion.h1>
 
@@ -1147,6 +1151,109 @@ function SponsorsSection() {
   );
 }
 
+function MissionVisionSection() {
+  const [ref, inView] = useInView();
+  const [activeTab, setActiveTab] = useState("mision");
+
+  return (
+    <section 
+      id="mision-vision"
+      style={{
+        padding: '80px 0',
+        background: 'var(--navy)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Animated Glowing Orbs Behind Glass */}
+      <motion.div animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} style={{ position: 'absolute', top: '-10%', left: '10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(243,107,34,0.12) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: 0 }} />
+      <motion.div animate={{ scale: [1, 1.3, 1], x: [0, -30, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} style={{ position: 'absolute', bottom: '-20%', right: '0%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(80px)', zIndex: 0 }} />
+
+      <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            background: 'rgba(255, 255, 255, 0.02)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '32px',
+            padding: 'clamp(32px, 5vw, 56px)',
+            boxShadow: '0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}
+        >
+          {/* Custom Tab Switcher */}
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '40px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '32px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button 
+              onClick={() => setActiveTab('mision')}
+              style={{ 
+                background: activeTab === 'mision' ? 'rgba(243,107,34,0.1)' : 'rgba(255,255,255,0.02)',
+                border: activeTab === 'mision' ? '1px solid var(--orange)' : '1px solid rgba(255,255,255,0.1)',
+                color: activeTab === 'mision' ? 'var(--orange)' : 'rgba(255,255,255,0.5)',
+                padding: '14px 40px', borderRadius: '40px', fontSize: '14px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', cursor: 'pointer', transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                boxShadow: activeTab === 'mision' ? '0 0 20px rgba(243,107,34,0.2)' : 'none'
+              }}>
+              <i className="fa-solid fa-bullseye" style={{ marginRight: '10px' }}></i> Misión
+            </button>
+            <button 
+              onClick={() => setActiveTab('vision')}
+              style={{ 
+                background: activeTab === 'vision' ? 'rgba(59,130,246,0.1)' : 'rgba(255,255,255,0.02)',
+                border: activeTab === 'vision' ? '1px solid #3b82f6' : '1px solid rgba(255,255,255,0.1)',
+                color: activeTab === 'vision' ? '#3b82f6' : 'rgba(255,255,255,0.5)',
+                padding: '14px 40px', borderRadius: '40px', fontSize: '14px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', cursor: 'pointer', transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                boxShadow: activeTab === 'vision' ? '0 0 20px rgba(59,130,246,0.2)' : 'none'
+              }}>
+              <i className="fa-solid fa-eye" style={{ marginRight: '10px' }}></i> Visión
+            </button>
+          </div>
+
+          {/* Interactive Content Area */}
+          <div style={{ minHeight: '180px', position: 'relative' }}>
+            <AnimatePresence mode="wait">
+              {activeTab === 'mision' && (
+                <motion.div 
+                  key="mision" 
+                  initial={{ opacity: 0, y: 15, scale: 0.98 }} 
+                  animate={{ opacity: 1, y: 0, scale: 1 }} 
+                  exit={{ opacity: 0, y: -15, scale: 0.98 }} 
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(16px, 2vw, 18px)', lineHeight: '1.9', textAlign: 'center', margin: 0, fontWeight: 300 }}>
+                    <strong style={{ color: '#fff', fontWeight: 600 }}>Especialistas en Alturas</strong> brinda soluciones integrales y especializadas en mantenimiento preventivo y correctivo de fachadas y edificaciones, trabajos en alturas e instalación de sistemas de protección contra caídas. Desarrollamos nuestros servicios de manera segura, eficiente y oportuna, mediante personal competente y cumplimiento estricto normativo.
+                    <br/><br/>
+                    <span style={{ color: 'var(--orange)' }}>Nuestro propósito:</span> proteger la integridad de nuestros colaboradores, conservar y valorizar la infraestructura y garantizar soluciones que favorezcan la seguridad, funcionalidad y durabilidad de las edificaciones bajo los más altos estándares de calidad.
+                  </p>
+                </motion.div>
+              )}
+              {activeTab === 'vision' && (
+                <motion.div 
+                  key="vision" 
+                  initial={{ opacity: 0, y: 15, scale: 0.98 }} 
+                  animate={{ opacity: 1, y: 0, scale: 1 }} 
+                  exit={{ opacity: 0, y: -15, scale: 0.98 }} 
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(16px, 2vw, 18px)', lineHeight: '1.9', textAlign: 'center', margin: 0, fontWeight: 300 }}>
+                    Para el <strong style={{ color: '#fff', fontWeight: 600 }}>año 2030</strong>, Especialistas en Alturas será reconocida como una empresa referente en el sector de mantenimiento de fachadas, trabajos en alturas y sistemas de protección contra caídas, destacándose por su excelencia técnica, cultura de seguridad, calidad del servicio y cumplimiento.
+                    <br/><br/>
+                    <span style={{ color: '#3b82f6' }}>Buscaremos consolidar</span> nuestro crecimiento y posicionamiento en el mercado mediante la mejora continua de nuestros procesos, el fortalecimiento de las competencias de nuestro talento, la innovación y la construcción de relaciones comerciales basadas en la confianza total de nuestros clientes.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   const [selectedItem, setSelectedItem] = useState(null);
   const yearsOfExperience = new Date().getFullYear() - 2014;
@@ -1158,6 +1265,7 @@ export default function Page() {
       <main>
         <HeroSection />
         <AboutSection />
+        <MissionVisionSection />
         <ServicesSection onItemClick={setSelectedItem} />
         <BenefitsSection />
         <RiskAnalysisSection />

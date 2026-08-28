@@ -99,7 +99,6 @@ body {
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: brightness(0) invert(1);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .header.scrolled .brand-logo {
@@ -1150,11 +1149,10 @@ nav a:hover { color: var(--orange); }
 }
 .footer-brand { margin-bottom: 24px; }
 .footer-logo {
-  max-width: 260px;
+  max-width: 320px;
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 .footer-desc {
   font-size: 15px;
@@ -1299,10 +1297,10 @@ nav a:hover { color: var(--orange); }
   margin-bottom: 60px;
 }
 .mobile-nav-logo {
-  height: 48px;
-  max-width: 70vw;
+  height: 80px;
+  max-width: 80vw;
+  width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 .mobile-nav-close {
   width: 44px; height: 44px;

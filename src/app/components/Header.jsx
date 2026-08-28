@@ -1,4 +1,3 @@
-
 "use client";
 import Image from "next/image";
 
@@ -33,7 +32,7 @@ export default function Header() {
   const links = [
     { href: "/#empresa", label: "Empresa" },
     { href: "/#servicios", label: "Servicios" },
-    { href: "/portafolio", label: "Casos de Éxito" },
+    { href: "/portafolio", label: "Casos de Exito" },
     { href: "/#contacto", label: "Contacto" },
   ];
 
@@ -49,10 +48,10 @@ export default function Header() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="mobile-nav-mesh" />
-            
+
             <div className="mobile-nav-top">
               <Link href="/">
-                <Image src="/assets/logo.png" alt="EA" className="mobile-nav-logo" width={60} height={60} />
+                <Image src="/assets/logo-color.png" alt="EA" className="mobile-nav-logo" width={200} height={70} />
               </Link>
               <button className="mobile-nav-close" onClick={() => setMenuOpen(false)}>
                 <i className="fa-solid fa-xmark" />
@@ -75,7 +74,7 @@ export default function Header() {
               ))}
             </div>
 
-            <motion.div 
+            <motion.div
               className="mobile-nav-footer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,18 +82,18 @@ export default function Header() {
             >
               <div className="mobile-nav-socials">
                 <a href="https://wa.me/573053439984" target="_blank" rel="noreferrer"><i className="fa-brands fa-whatsapp"/> 305 343 9984</a>
-                <a href="mailto:losespecialistasenalturas@gmail.com"><i className="fa-solid fa-envelope"/> Correo Técnico</a>
+                <a href="mailto:losespecialistasenalturas@gmail.com"><i className="fa-solid fa-envelope"/> Correo Tecnico</a>
               </div>
-              <a 
-                  href="https://wa.me/573053439984?text=Hola,%20quisiera%20cotizar%20un%20proyecto" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="btn-primary"
-                  style={{ width: "100%", justifyContent: "center", textDecoration: 'none' }}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Cotizar Proyecto
-                </a>
+              <a
+                href="https://wa.me/573053439984?text=Hola,%20quisiera%20cotizar%20un%20proyecto"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary"
+                style={{ width: "100%", justifyContent: "center", textDecoration: "none" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                Cotizar Proyecto
+              </a>
             </motion.div>
           </motion.div>
         )}
@@ -103,10 +102,10 @@ export default function Header() {
       <header className={`header ${scrolled || isPortfolio ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
         <div className="header-inner">
           <Link href="/" className="brand">
-            <img 
-              src="/assets/logo.png" 
-              alt="Especialistas en Alturas SAS" 
-              className="brand-logo" 
+            <img
+              src="/assets/logo-color.png"
+              alt="Especialistas en Alturas SAS"
+              className="brand-logo"
             />
           </Link>
           <nav>
@@ -114,11 +113,11 @@ export default function Header() {
               <Link key={l.href} href={l.href}>{l.label}</Link>
             ))}
           </nav>
-          <a href="https://wa.me/573053439984?text=Hola,%20quisiera%20cotizar%20un%20proyecto" target="_blank" rel="noreferrer" className="btn-nav" style={{ textDecoration: 'none' }}>Cotizar Proyecto</a>
+          <a href="https://wa.me/573053439984?text=Hola,%20quisiera%20cotizar%20un%20proyecto" target="_blank" rel="noreferrer" className="btn-nav" style={{ textDecoration: "none" }}>Cotizar Proyecto</a>
           <div
             className={`hamburger${menuOpen ? " open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menú"
+            aria-label="Menu"
           >
             <span />
             <span />
