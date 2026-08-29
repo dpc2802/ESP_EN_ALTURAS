@@ -329,7 +329,11 @@ function TrustedBySection() {
     { src: "/assets/clients/agcubiertas.png", alt: "AG Cubiertas" },
     { src: "/assets/clients/habitaforte.png", alt: "Habita Forte" },
     { src: "/assets/clients/arquitecturaconcreto.png", alt: "Arquitectura y Concreto" },
-    { src: "/assets/clients/santamaria.png", alt: "Arrendamientos Santa Maria LTDA" }
+    { src: "/assets/clients/santamaria.png", alt: "Arrendamientos Santa Maria LTDA" },
+    { src: "/assets/clients/itagui.png", alt: "Alcaldía de Itagüí" },
+    { src: "/assets/clients/rionegro.png", alt: "Alcaldía de Rionegro" },
+    { src: "/assets/clients/envigado.png", alt: "Alcaldía de Envigado" },
+    { src: "/assets/clients/caldas.png", alt: "Alcaldía de Caldas" }
   ];
 
   const angle = 360 / logos.length;
