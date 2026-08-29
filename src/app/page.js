@@ -351,7 +351,7 @@ function TrustedBySection() {
     }}>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <p style={{ color: 'var(--orange)', fontSize: '13px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '60px', textAlign: 'center', background: 'rgba(243,107,34,0.1)', padding: '8px 20px', borderRadius: '20px', border: '1px solid rgba(243,107,34,0.3)' }}>
-          Grandes empresas e instituciones confían en nuestra experiencia
+          Grandes Clientes y Aliados
         </p>
 
         {/* 3D Roulette Container */}
