@@ -51,7 +51,7 @@ export default function Header() {
 
             <div className="mobile-nav-top">
               <Link href="/">
-                <Image src="/assets/logo-color.png" alt="EA" className="mobile-nav-logo" width={200} height={70} />
+                <Image src="/assets/logo-premium.png" alt="EA" className="mobile-nav-logo" width={200} height={70} />
               </Link>
               <button className="mobile-nav-close" onClick={() => setMenuOpen(false)}>
                 <i className="fa-solid fa-xmark" />
@@ -103,7 +103,7 @@ export default function Header() {
         <div className="header-inner">
           <Link href="/" className="brand">
             <img
-              src="/assets/logo-color.png"
+              src="/assets/logo-premium.png"
               alt="Especialistas en Alturas SAS"
               className="brand-logo"
             />

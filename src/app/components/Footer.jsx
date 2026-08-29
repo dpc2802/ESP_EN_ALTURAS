@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="footer-col-brand">
             <div className="footer-brand">
               <Link href="/">
-                <Image src="/assets/logo-color.png" alt="Logo Especialistas en Alturas" className="footer-logo" width={320} height={96} />
+                <Image src="/assets/logo-premium.png" alt="Logo Especialistas en Alturas" className="footer-logo" width={320} height={96} />
               </Link>
             </div>
             <p className="footer-desc">
