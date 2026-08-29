@@ -329,6 +329,11 @@ function TrustedBySection() {
     { src: "/assets/clients/agcubiertas.png", alt: "AG Cubiertas" },
     { src: "/assets/clients/habitaforte.png", alt: "Habita Forte" },
     { src: "/assets/clients/arquitecturaconcreto.png", alt: "Arquitectura y Concreto" },
+    { src: "/assets/clients/santamaria.png", alt: "Arrendamientos Santa Maria LTDA" },
+    { src: "/assets/clients/itagui.png", alt: "Alcaldía de Itagüí" },
+    { src: "/assets/clients/rionegro.png", alt: "Alcaldía de Rionegro" },
+    { src: "/assets/clients/envigado.png", alt: "Alcaldía de Envigado" },
+    { src: "/assets/clients/caldas.png", alt: "Alcaldía de Caldas" }
   ];
 
   const angle = 360 / logos.length;
@@ -338,15 +343,15 @@ function TrustedBySection() {
   return (
     <section style={{ 
       background: 'var(--navy)', 
-      padding: '25px 0 45px 0', 
+      padding: '40px 0 60px 0', 
       position: 'relative', 
       overflow: 'hidden',
       borderTop: '1px solid rgba(243, 107, 34, 0.2)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
     }}>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '20px', textAlign: 'center' }}>
-          Confían en nosotros
+        <p style={{ color: 'var(--orange)', fontSize: '13px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '60px', textAlign: 'center', background: 'rgba(243,107,34,0.1)', padding: '8px 20px', borderRadius: '20px', border: '1px solid rgba(243,107,34,0.3)' }}>
+          Grandes empresas e instituciones confían en nuestra experiencia
         </p>
 
         {/* 3D Roulette Container */}
