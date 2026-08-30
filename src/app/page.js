@@ -449,11 +449,15 @@ function NotableProjectsSection() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ textAlign: 'center', marginBottom: '60px' }}
         >
-          <div style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(243,107,34,0.1)', color: 'var(--orange)', borderRadius: '30px', fontSize: '12px', fontWeight: 800, letterSpacing: '2px', marginBottom: '20px', textTransform: 'uppercase' }}>
-            Nuestra Experiencia
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '20px' }}>
+            <div className="glowing-dot"></div>
+            <div style={{ padding: '6px 16px', background: 'rgba(243,107,34,0.1)', color: 'var(--orange)', borderRadius: '30px', fontSize: '12px', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' }}>
+              Nuestra Experiencia
+            </div>
           </div>
+          
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 48px)', fontFamily: 'var(--font-head)', marginBottom: '16px', lineHeight: '1.1', fontWeight: 900 }}>
-            <span style={{ background: 'linear-gradient(135deg, var(--navy) 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <span style={{ color: 'var(--navy)' }}>
               ACTIVIDADES
             </span>
             <br />
@@ -611,6 +615,19 @@ function NotableProjectsSection() {
         .project-card-light:hover .hover-arrow {
           opacity: 1;
           transform: translateX(0);
+        }
+        .glowing-dot {
+          width: 12px;
+          height: 12px;
+          background-color: var(--orange);
+          border-radius: 50%;
+          box-shadow: 0 0 10px var(--orange), 0 0 20px rgba(243,107,34,0.5);
+          animation: pulse-dot 2s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+          0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(243, 107, 34, 0.7); }
+          70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(243, 107, 34, 0); }
+          100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(243, 107, 34, 0); }
         }
       `}} />
     </section>
