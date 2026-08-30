@@ -351,7 +351,7 @@ function TrustedBySection() {
     }}>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <p style={{ color: 'var(--orange)', fontSize: '13px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '60px', textAlign: 'center', background: 'rgba(243,107,34,0.1)', padding: '8px 20px', borderRadius: '20px', border: '1px solid rgba(243,107,34,0.3)' }}>
-          Grandes Clientes y Aliados
+          Grandes Clientes
         </p>
 
         {/* 3D Roulette Container */}
@@ -393,6 +393,94 @@ function TrustedBySection() {
           to { transform: rotateY(-360deg); }
         }
       `}} />
+    </section>
+  );
+}
+
+/* ── Notable Projects Section ── */
+function NotableProjectsSection() {
+  const [ref, inView] = useInView();
+  
+  const projects = [
+    { client: "Metro Salud", task: "Restauración de fachadas de los METRO SALUD San Juan, Poblado y San Antonio de Prado" },
+    { client: "Metro de Medellín", task: "Diseño, fabricación e instalación de Líneas de Vida" },
+    { client: "Cámara de Comercio Oriente", task: "Mantenimiento de fachada" },
+    { client: "C.C. VIVA la Ceja", task: "Mantenimiento de fachada e instalación de anclajes" },
+    { client: "Edificio El Corhal", task: "Escalera, línea de vida y puntos de anclaje" },
+    { client: "Soto Verde", task: "Instalación de Puntos de Anclaje y restauración" },
+    { client: "Empresa Solla", task: "Líneas de vida y puntos de anclaje certificados" },
+    { client: "Vigo Apartamentos", task: "Restauración de fachada e impermeabilización" },
+    { client: "Colegios Municipio de Medellín", task: "Mantenimiento de fachadas de 5 colegios" },
+    { client: "Verdi Condominios", task: "Mantenimiento de fachada y puntos de anclaje" },
+    { client: "Apartamentos El Caney", task: "Mantenimiento de fachada y puntos de anclaje" },
+    { client: "Portanova Suites", task: "Mantenimiento de fachada y anclajes" },
+    { client: "Luxury PH", task: "Restauración de fachada y anclajes" },
+    { client: "Incovel (Mun. Envigado)", task: "Restauración de escenarios polideportivos" },
+    { client: "Gaseosas Lux", task: "Mural grafitiado - Arte y cultura" },
+    { client: "Luna del Valle / La Bolsa", task: "Instalación de puntos de anclaje" },
+    { client: "Hospital Manuel Uribe Ángel", task: "Instalación puntos de anclaje" },
+    { client: "Edificio Los Cerezos", task: "Restauración de 2 torres de 23 pisos y parqueaderos" },
+    { client: "Torres de San Joaquín", task: "Restauración de fachada" },
+    { client: "Azalea del Parque", task: "Restauración de 4 torres de 19 pisos" },
+    { client: "Alcaldía de Caldas", task: "Múltiples trabajos de mantenimiento e instalación" },
+  ];
+
+  return (
+    <section style={{ 
+      padding: '80px 0', 
+      background: '#f4f5f7', 
+      position: 'relative'
+    }}>
+      <div className="wrap">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '50px' }}
+        >
+          <h2 style={{ fontSize: '32px', color: 'var(--navy)', fontFamily: 'var(--font-head)', marginBottom: '16px', lineHeight: '1.2' }}>
+            ACTIVIDADES EJECUTADAS<br />
+            <span style={{ color: 'var(--orange)' }}>CASOS DE ÉXITO</span>
+          </h2>
+          <p style={{ color: '#666', maxWidth: '600px', margin: '0 auto', fontSize: '16px' }}>
+            Un historial de proyectos que respaldan nuestra excelencia técnica y compromiso con la seguridad.
+          </p>
+        </motion.div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '20px'
+        }}>
+          {projects.map((proj, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: (idx % 8) * 0.05 }}
+              style={{
+                background: '#fff',
+                borderLeft: '4px solid var(--orange)',
+                padding: '24px',
+                borderRadius: '0 12px 12px 0',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}
+            >
+              <h4 style={{ color: 'var(--navy)', fontSize: '15px', fontWeight: 800, marginBottom: '8px' }}>
+                {proj.client}
+              </h4>
+              <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
+                {proj.task}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -1270,6 +1358,7 @@ export default function Page() {
         <HeroSection />
         <AboutSection />
         <MissionVisionSection />
+        <NotableProjectsSection />
         <ServicesSection onItemClick={setSelectedItem} />
         <BenefitsSection />
         <RiskAnalysisSection />
