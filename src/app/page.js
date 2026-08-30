@@ -430,28 +430,37 @@ function NotableProjectsSection() {
 
   return (
     <section style={{ 
-      padding: '70px 0', 
-      background: 'var(--navy)', 
+      padding: '100px 0', 
+      background: '#ffffff', 
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      backgroundImage: 'radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px)',
+      backgroundSize: '40px 40px'
     }}>
-      {/* Background Orbs for premium touch */}
-      <div style={{ position: 'absolute', top: '-20%', right: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(243,107,34,0.1) 0%, transparent 70%)', filter: 'blur(50px)' }} />
-      <div style={{ position: 'absolute', bottom: '-20%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+      {/* Decorative gradient blur in background */}
+      <div style={{ position: 'absolute', top: '0%', right: '0%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(243,107,34,0.05) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: 0 }} />
+      <div style={{ position: 'absolute', bottom: '0%', left: '0%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: 0 }} />
 
       <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '40px' }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{ textAlign: 'center', marginBottom: '60px' }}
         >
-          <h2 style={{ fontSize: '32px', color: '#fff', fontFamily: 'var(--font-head)', marginBottom: '16px', lineHeight: '1.2' }}>
-            ACTIVIDADES <span style={{ color: 'var(--orange)' }}>EJECUTADAS</span>
+          <div style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(243,107,34,0.1)', color: 'var(--orange)', borderRadius: '30px', fontSize: '12px', fontWeight: 800, letterSpacing: '2px', marginBottom: '20px', textTransform: 'uppercase' }}>
+            Nuestra Experiencia
+          </div>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 48px)', fontFamily: 'var(--font-head)', marginBottom: '16px', lineHeight: '1.1', fontWeight: 900 }}>
+            <span style={{ background: 'linear-gradient(135deg, var(--navy) 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              ACTIVIDADES
+            </span>
+            <br />
+            <span style={{ color: 'var(--orange)' }}>EJECUTADAS</span>
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '600px', margin: '0 auto', fontSize: '15px' }}>
-            Desliza para explorar algunos de los retos más grandes que hemos superado con excelencia técnica.
+          <p style={{ color: '#555', maxWidth: '650px', margin: '0 auto', fontSize: '16px', lineHeight: '1.6' }}>
+            Un historial impecable de desafíos estructurales superados con excelencia, técnica e innovación. Desliza para explorar.
           </p>
         </motion.div>
       </div>
@@ -462,19 +471,21 @@ function NotableProjectsSection() {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+        gap: '24px',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+        maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+        zIndex: 2
       }}>
         {/* ROW 1: Scrolling Left */}
         <div className="marquee-track">
           {[...row1, ...row1].map((proj, idx) => (
-            <div key={`r1-${idx}`} className="project-card">
-              <div className="icon-box"><i className="fa-solid fa-check-double"></i></div>
-              <div>
+            <div key={`r1-${idx}`} className="project-card-light">
+              <div className="icon-box-light"><i className="fa-solid fa-building-circle-check"></i></div>
+              <div className="card-content">
                 <h4>{proj.client}</h4>
                 <p>{proj.task}</p>
               </div>
+              <div className="hover-arrow"><i className="fa-solid fa-arrow-right"></i></div>
             </div>
           ))}
         </div>
@@ -482,12 +493,13 @@ function NotableProjectsSection() {
         {/* ROW 2: Scrolling Right */}
         <div className="marquee-track reverse">
           {[...row2, ...row2].map((proj, idx) => (
-            <div key={`r2-${idx}`} className="project-card">
-              <div className="icon-box blue"><i className="fa-solid fa-check-double"></i></div>
-              <div>
+            <div key={`r2-${idx}`} className="project-card-light">
+              <div className="icon-box-light blue"><i className="fa-solid fa-helmet-safety"></i></div>
+              <div className="card-content">
                 <h4>{proj.client}</h4>
                 <p>{proj.task}</p>
               </div>
+              <div className="hover-arrow"><i className="fa-solid fa-arrow-right"></i></div>
             </div>
           ))}
         </div>
@@ -497,12 +509,12 @@ function NotableProjectsSection() {
         .marquee-track {
           display: flex;
           width: max-content;
-          gap: 20px;
-          animation: scrollLeft 35s linear infinite;
-          padding-left: 20px;
+          gap: 24px;
+          animation: scrollLeft 40s linear infinite;
+          padding-left: 24px;
         }
         .marquee-track.reverse {
-          animation: scrollRight 30s linear infinite;
+          animation: scrollRight 45s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
@@ -515,53 +527,90 @@ function NotableProjectsSection() {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
         }
-        .project-card {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          border-radius: 16px;
-          padding: 20px;
-          width: 350px;
+        .project-card-light {
+          background: #ffffff;
+          border: 1px solid rgba(0,0,0,0.05);
+          border-left: 5px solid #e5e7eb;
+          border-radius: 20px;
+          padding: 24px;
+          width: 400px;
           display: flex;
           align-items: center;
-          gap: 16px;
-          transition: all 0.3s ease;
-          cursor: default;
+          gap: 20px;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          cursor: pointer;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+          position: relative;
+          overflow: hidden;
         }
-        .project-card:hover {
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(243, 107, 34, 0.3);
-          transform: translateY(-5px);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .project-card-light::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(135deg, rgba(243,107,34,0.05) 0%, transparent 100%);
+          opacity: 0;
+          transition: opacity 0.4s ease;
         }
-        .project-card h4 {
-          color: #fff;
-          font-size: 15px;
-          font-weight: 700;
-          margin-bottom: 4px;
+        .project-card-light:hover {
+          border-left-color: var(--orange);
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(243, 107, 34, 0.12);
         }
-        .project-card p {
-          color: rgba(255,255,255,0.6);
-          font-size: 13px;
-          line-height: 1.4;
+        .project-card-light:hover::before {
+          opacity: 1;
+        }
+        .card-content {
+          flex: 1;
+          position: relative;
+          z-index: 1;
+        }
+        .project-card-light h4 {
+          color: var(--navy);
+          font-size: 17px;
+          font-weight: 800;
+          margin-bottom: 6px;
+          transition: color 0.3s;
+        }
+        .project-card-light:hover h4 {
+          color: var(--orange);
+        }
+        .project-card-light p {
+          color: #666;
+          font-size: 14px;
+          line-height: 1.5;
           margin: 0;
         }
-        .icon-box {
-          width: 48px;
-          height: 48px;
-          border-radius: 12px;
-          background: rgba(243, 107, 34, 0.1);
+        .icon-box-light {
+          width: 56px;
+          height: 56px;
+          border-radius: 16px;
+          background: linear-gradient(135deg, #fff3eb 0%, #ffe3d1 100%);
           color: var(--orange);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 20px;
+          font-size: 24px;
           flex-shrink: 0;
+          box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 8px rgba(243,107,34,0.15);
+          position: relative;
+          z-index: 1;
         }
-        .icon-box.blue {
-          background: rgba(59, 130, 246, 0.1);
+        .icon-box-light.blue {
+          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
           color: #3b82f6;
+          box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 8px rgba(59,130,246,0.15);
+        }
+        .hover-arrow {
+          position: absolute;
+          right: 24px;
+          color: var(--orange);
+          opacity: 0;
+          transform: translateX(-15px);
+          transition: all 0.3s ease;
+        }
+        .project-card-light:hover .hover-arrow {
+          opacity: 1;
+          transform: translateX(0);
         }
       `}} />
     </section>
