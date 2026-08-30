@@ -425,62 +425,145 @@ function NotableProjectsSection() {
     { client: "Alcaldía de Caldas", task: "Múltiples trabajos de mantenimiento e instalación" },
   ];
 
+  const row1 = projects.slice(0, 11);
+  const row2 = projects.slice(11, 21);
+
   return (
     <section style={{ 
-      padding: '80px 0', 
-      background: '#f4f5f7', 
-      position: 'relative'
+      padding: '70px 0', 
+      background: 'var(--navy)', 
+      position: 'relative',
+      overflow: 'hidden'
     }}>
-      <div className="wrap">
+      {/* Background Orbs for premium touch */}
+      <div style={{ position: 'absolute', top: '-20%', right: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(243,107,34,0.1) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+      <div style={{ position: 'absolute', bottom: '-20%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+
+      <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '50px' }}
+          style={{ textAlign: 'center', marginBottom: '40px' }}
         >
-          <h2 style={{ fontSize: '32px', color: 'var(--navy)', fontFamily: 'var(--font-head)', marginBottom: '16px', lineHeight: '1.2' }}>
-            ACTIVIDADES EJECUTADAS<br />
-            <span style={{ color: 'var(--orange)' }}>CASOS DE ÉXITO</span>
+          <h2 style={{ fontSize: '32px', color: '#fff', fontFamily: 'var(--font-head)', marginBottom: '16px', lineHeight: '1.2' }}>
+            ACTIVIDADES <span style={{ color: 'var(--orange)' }}>EJECUTADAS</span>
           </h2>
-          <p style={{ color: '#666', maxWidth: '600px', margin: '0 auto', fontSize: '16px' }}>
-            Un historial de proyectos que respaldan nuestra excelencia técnica y compromiso con la seguridad.
+          <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '600px', margin: '0 auto', fontSize: '15px' }}>
+            Desliza para explorar algunos de los retos más grandes que hemos superado con excelencia técnica.
           </p>
         </motion.div>
+      </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '20px'
-        }}>
-          {projects.map((proj, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: (idx % 8) * 0.05 }}
-              style={{
-                background: '#fff',
-                borderLeft: '4px solid var(--orange)',
-                padding: '24px',
-                borderRadius: '0 12px 12px 0',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
-              }}
-            >
-              <h4 style={{ color: 'var(--navy)', fontSize: '15px', fontWeight: 800, marginBottom: '8px' }}>
-                {proj.client}
-              </h4>
-              <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.5', margin: 0 }}>
-                {proj.task}
-              </p>
-            </motion.div>
+      {/* Infinite Marquee Container */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20px',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+      }}>
+        {/* ROW 1: Scrolling Left */}
+        <div className="marquee-track">
+          {[...row1, ...row1].map((proj, idx) => (
+            <div key={`r1-${idx}`} className="project-card">
+              <div className="icon-box"><i className="fa-solid fa-check-double"></i></div>
+              <div>
+                <h4>{proj.client}</h4>
+                <p>{proj.task}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ROW 2: Scrolling Right */}
+        <div className="marquee-track reverse">
+          {[...row2, ...row2].map((proj, idx) => (
+            <div key={`r2-${idx}`} className="project-card">
+              <div className="icon-box blue"><i className="fa-solid fa-check-double"></i></div>
+              <div>
+                <h4>{proj.client}</h4>
+                <p>{proj.task}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          gap: 20px;
+          animation: scrollLeft 35s linear infinite;
+          padding-left: 20px;
+        }
+        .marquee-track.reverse {
+          animation: scrollRight 30s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+        @keyframes scrollLeft {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes scrollRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .project-card {
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 16px;
+          padding: 20px;
+          width: 350px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          transition: all 0.3s ease;
+          cursor: default;
+        }
+        .project-card:hover {
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(243, 107, 34, 0.3);
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .project-card h4 {
+          color: #fff;
+          font-size: 15px;
+          font-weight: 700;
+          margin-bottom: 4px;
+        }
+        .project-card p {
+          color: rgba(255,255,255,0.6);
+          font-size: 13px;
+          line-height: 1.4;
+          margin: 0;
+        }
+        .icon-box {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          background: rgba(243, 107, 34, 0.1);
+          color: var(--orange);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          flex-shrink: 0;
+        }
+        .icon-box.blue {
+          background: rgba(59, 130, 246, 0.1);
+          color: #3b82f6;
+        }
+      `}} />
     </section>
   );
 }
