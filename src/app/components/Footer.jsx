@@ -40,8 +40,8 @@ export default function Footer() {
             <div className="footer-title">Contacto Directo</div>
             <ul className="footer-contact-list">
               <li>
-                <i className="fa-solid fa-user-tie"></i>
-                <span><strong>Hans Gutiérrez Baena</strong><br/>Representante Legal</span>
+                <i className="fa-solid fa-file-signature"></i>
+                <span><strong>Especialistas en Alturas S.A.S.</strong><br/>NIT: 901154124-4</span>
               </li>
               <li>
                 <i className="fa-solid fa-envelope"></i>
@@ -49,18 +49,18 @@ export default function Footer() {
               </li>
               <li>
                 <i className="fa-solid fa-phone"></i>
-                <a href="tel:+573053439984">305 343 9984</a>
+                <a href="tel:+573053439984">+57 305 343 9984</a>
               </li>
               <li>
                 <i className="fa-solid fa-location-dot"></i>
-                <span>Medellín, Colombia</span>
+                <span>Vda. La Playa Paraje La Mosca<br/>Punto La Esperanza, Rionegro (Ant.)</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Especialistas en Alturas S.A.S. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Especialistas en Alturas S.A.S. • Registrados en la Cámara de Comercio del Oriente Antioqueño.</p>
           <div className="footer-bottom-links">
             <Link href="/politica-privacidad">Política de Privacidad</Link>
             <span className="separator">|</span>

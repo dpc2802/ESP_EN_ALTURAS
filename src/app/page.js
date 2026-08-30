@@ -718,12 +718,12 @@ function AboutSection() {
               gap: '12px'
             }}>
               <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
-                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas, <span style={{ color: 'var(--orange)' }}>creada en el año 2014.</span>
+                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>Más de 10 años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
                 <i className="fa-solid fa-award" style={{ fontSize: '20px', color: 'var(--orange)' }}></i>
                 <p style={{ fontSize: '15px', fontWeight: 800, color: 'var(--navy)', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                  {new Date().getFullYear() - 2014} Años de Experiencia
+                  {new Date().getFullYear() - 2014} Años de Experiencia Técnica
                 </p>
               </div>
             </div>
@@ -732,9 +732,25 @@ function AboutSection() {
               Por medio de nuestro personal altamente calificado y basados en el cumplimiento de un SG-SST estructurado con un énfasis en las actividades de alto Riesgo, garantizamos a nuestros clientes una correcta ejecución, minimizando los riesgos a la hora de ejecutar los contratos.
             </p>
             
-            <p style={{ color: 'var(--navy)', fontSize: '16px', fontWeight: 700, fontStyle: 'italic', marginBottom: '40px' }}>
+            <p style={{ color: 'var(--navy)', fontSize: '16px', fontWeight: 700, fontStyle: 'italic', marginBottom: '24px' }}>
               Cuidando el bienestar de todos los involucrados.
             </p>
+
+            {/* Official Legal Trust Badges */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '24px' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(243,107,34,0.1)', border: '1px solid rgba(243,107,34,0.3)', padding: '10px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: 800, color: 'var(--navy)', textTransform: 'uppercase' }}>
+                <i className="fa-solid fa-file-signature" style={{ color: 'var(--orange)', fontSize: '16px' }} />
+                Empresa S.A.S. (NIT 901154124-4)
+              </span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', padding: '10px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: 800, color: 'var(--navy)', textTransform: 'uppercase' }}>
+                <i className="fa-solid fa-building-shield" style={{ color: '#3b82f6', fontSize: '16px' }} />
+                Reg. Cámara de Comercio
+              </span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.8)', border: '1px solid rgba(0,0,0,0.1)', padding: '10px 16px', borderRadius: '8px', fontSize: '12px', fontWeight: 800, color: 'var(--navy)', textTransform: 'uppercase' }}>
+                <i className="fa-solid fa-calendar-check" style={{ color: 'var(--navy)', fontSize: '16px' }} />
+                Constituidos formalmente (Feb 2018)
+              </span>
+            </div>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
               {["Personal Calificado", "SG-SST Estructurado", "Cumplimiento Normativo"].map((c) => (
