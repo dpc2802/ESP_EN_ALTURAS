@@ -724,7 +724,6 @@ function AboutSection() {
             }}>
               <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
                 Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>Más de 10 años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
-                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>{new Date().getFullYear() - 2014} años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
                 <i className="fa-solid fa-award" style={{ fontSize: '20px', color: 'var(--orange)' }}></i>
@@ -1344,8 +1343,7 @@ function SponsorsSection() {
     { src: "/assets/clients/escudo.png", alt: "Gobierno de Colombia", width: 90 },
     { src: "/assets/clients/fondo-emprender.png", alt: "Fondo Emprender", width: 170 },
     { src: "/assets/clients/sena.png", alt: "SENA", width: 90 },
-    { src: "/assets/clients/alcaldia.png", alt: "Alcaldía de Rionegro", width: 180 },
-    { src: "/assets/clients/rionegro.png", alt: "Rionegro Tarea de Todos", width: 140 }
+    { src: "/assets/clients/alcaldia.png", alt: "Alcaldía de Rionegro", width: 180 }
   ];
 
   return (
