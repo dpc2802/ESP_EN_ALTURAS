@@ -17,13 +17,13 @@ const inter = Inter({
 
 export const metadata = {
   metadataBase: new URL("https://esp-en-alturas.vercel.app"),
-  title: "Especialistas en Alturas SAS — Trabajo Seguro en Altura",
+  title: "Especialistas en Alturas SAS | Medellín y Oriente Antioqueño",
   description:
-    "Trabajos en alturas certificados: estructuras metálicas, líneas de vida, fachadas y cubiertas. SG-SST estructurado, personal calificado, desde 2014.",
-  keywords: "trabajo en alturas, líneas de vida, estructuras metálicas, fachadas, SG-SST, Colombia, Medellín",
+    "Expertos en trabajo seguro en alturas en Medellín, Rionegro y el Oriente Antioqueño. Mantenimiento de fachadas, líneas de vida, cubiertas y estructuras metálicas.",
+  keywords: "trabajo en alturas medellin, mantenimiento de fachadas rionegro, lineas de vida oriente antioqueño, estructuras metalicas antioquia, empresas de alturas medellin, rionegro",
   openGraph: {
-    title: "Especialistas en Alturas SAS | Ingeniería de Riesgo",
-    description: "Expertos en trabajos seguros de alto riesgo. Personal certificado y cumplimiento de la Resolución 4272/2021.",
+    title: "Especialistas en Alturas SAS | Ingeniería de Riesgo en Antioquia",
+    description: "Expertos en trabajos seguros de alto riesgo en Medellín y Oriente Antioqueño. Cumplimiento estricto de la Resolución 4272/2021.",
     url: "https://esp-en-alturas.vercel.app",
     siteName: "Especialistas en Alturas SAS",
     images: [
