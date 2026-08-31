@@ -723,7 +723,7 @@ function AboutSection() {
               gap: '12px'
             }}>
               <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
-                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>Más de 10 años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
+                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>{new Date().getFullYear() - 2014} años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
                 <i className="fa-solid fa-award" style={{ fontSize: '20px', color: 'var(--orange)' }}></i>
@@ -1045,25 +1045,8 @@ function FAQSection() {
     }
   ];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.a
-      }
-    }))
-  };
-
   return (
     <section className="faq-section" style={{ padding: '100px 0', background: 'var(--navy)' }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <div className="wrap">
         <motion.div
           className="text-center"
