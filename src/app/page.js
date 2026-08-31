@@ -180,7 +180,7 @@ function HeroSection() {
               margin: 0,
               textShadow: '0 2px 10px rgba(0,0,0,0.5)'
             }}>
-              En trabajos de alto riesgo. Garantizamos a nuestros clientes una correcta ejecución, minimizando los riesgos a la hora de ejecutar los contratos.
+              En trabajos de alto riesgo. Garantizamos a nuestros clientes una correcta ejecución minimizando los riesgos a la hora de ejecutar los contratos.
             </p>
           </motion.div>
 
@@ -723,7 +723,7 @@ function AboutSection() {
               gap: '12px'
             }}>
               <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
-                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>Más de 10 años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
+                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>{new Date().getFullYear() - 2014} años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
                 <i className="fa-solid fa-award" style={{ fontSize: '20px', color: 'var(--orange)' }}></i>
