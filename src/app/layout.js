@@ -62,44 +62,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${oswald.variable} ${inter.variable}`}>
-        {/* Schema Markup for Local SEO (Google loves this) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Especialistas en Alturas S.A.S.",
-              "image": "https://esp-en-alturas.vercel.app/assets/logo-premium.png",
-              "@id": "https://esp-en-alturas.vercel.app",
-              "url": "https://esp-en-alturas.vercel.app",
-              "telephone": "+573053439984",
-              "email": "losespecialistasenalturas@gmail.com",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Vda. La Playa Paraje La Mosca, Punto La Esperanza",
-                "addressLocality": "Rionegro",
-                "addressRegion": "Antioquia",
-                "addressCountry": "CO"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 6.1551,
-                "longitude": -75.3737
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                "opens": "07:00",
-                "closes": "18:00"
-              },
-              "sameAs": [
-                "https://www.facebook.com/losespecialistasenalturas/",
-                "https://www.instagram.com/especialistas_en_alturas_sas"
-              ]
-            }),
-          }}
-        />
         {children}
         <CookieBanner />
       </body>
