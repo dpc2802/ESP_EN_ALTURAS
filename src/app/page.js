@@ -685,7 +685,7 @@ function AboutSection() {
         >
           {/* Left Side: Image with Hotspots */}
           <motion.div className="about-img-wrap" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
-            <Image src="/assets/nuestra-empresa.jpg" loading="lazy" quality={60} alt="Especialistas en Alturas" width={800} height={1200} sizes="(max-width: 768px) 100vw, 50vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <Image src="/assets/empresa-vertical.jpg" loading="lazy" quality={60} alt="Especialistas en Alturas" width={800} height={1200} sizes="(max-width: 768px) 100vw, 50vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
           </motion.div>
           
           {/* Right Side: Premium Glassmorphism Text Card */}
@@ -723,6 +723,7 @@ function AboutSection() {
               gap: '12px'
             }}>
               <p style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', margin: 0 }}>
+                Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>Más de 10 años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
                 Somos una empresa enfocada en la ejecución de todo tipo de trabajos en Alturas. <span style={{ color: 'var(--orange)' }}>{new Date().getFullYear() - 2014} años de experiencia técnica</span> y constituidos formalmente como S.A.S. desde 2018.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(243,107,34,0.1)', padding: '8px 16px', borderRadius: '8px', width: 'fit-content' }}>
