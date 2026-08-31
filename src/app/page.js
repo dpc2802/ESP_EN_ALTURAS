@@ -6,6 +6,8 @@ import InteractiveQuote from "./components/InteractiveQuote";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+// Dynamic Imports for performance optimization (Lazy Loading below the fold)
+
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import ImageModal from "./components/ImageModal";
@@ -87,7 +89,7 @@ function HeroSection() {
           alt="Trabajo seguro en alturas" 
           fill 
           priority 
-          quality={100}
+          quality={60}
           sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center 68%" }} 
         />
@@ -387,10 +389,11 @@ function TrustedBySection() {
       <style dangerouslySetInnerHTML={{ __html: `
         .roulette-3d {
           animation: spinRoulette 45s infinite linear;
+          will-change: transform;
         }
         @keyframes spinRoulette {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(-360deg); }
+          from { transform: rotateY(0deg) translateZ(0); }
+          to { transform: rotateY(-360deg) translateZ(0); }
         }
       `}} />
     </section>
@@ -513,12 +516,14 @@ function NotableProjectsSection() {
         .marquee-track {
           display: flex;
           width: max-content;
-          gap: 24px;
-          animation: scrollLeft 40s linear infinite;
-          padding-left: 24px;
+          gap: 20px;
+          animation: scrollLeft 35s linear infinite;
+          padding-left: 20px;
+          will-change: transform;
+          transform: translateZ(0);
         }
         .marquee-track.reverse {
-          animation: scrollRight 45s linear infinite;
+          animation: scrollRight 30s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
@@ -680,7 +685,7 @@ function AboutSection() {
         >
           {/* Left Side: Image with Hotspots */}
           <motion.div className="about-img-wrap" variants={fadeIn} style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid rgba(255,255,255,0.8)' }}>
-            <Image src="/assets/nuestra-empresa.jpg" alt="Especialistas en Alturas" width={800} height={1200} sizes="(max-width: 768px) 100vw, 50vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <Image src="/assets/nuestra-empresa.jpg" loading="lazy" quality={60} alt="Especialistas en Alturas" width={800} height={1200} sizes="(max-width: 768px) 100vw, 50vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
           </motion.div>
           
           {/* Right Side: Premium Glassmorphism Text Card */}
