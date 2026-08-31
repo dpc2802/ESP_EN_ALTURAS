@@ -180,7 +180,7 @@ function HeroSection() {
               margin: 0,
               textShadow: '0 2px 10px rgba(0,0,0,0.5)'
             }}>
-              En trabajos de alto riesgo. Garantizamos a nuestros clientes una correcta ejecución minimizando los riesgos a la hora de ejecutar los contratos.
+              En trabajos de alto riesgo. Garantizamos a nuestros clientes una correcta ejecución, minimizando los riesgos a la hora de ejecutar los contratos.
             </p>
           </motion.div>
 
